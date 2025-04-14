@@ -1,8 +1,13 @@
 package Utilities;
 
 import java.io.File;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.time.Duration;
 
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -18,8 +23,8 @@ public class BaseClass {
 
 	public AppiumDriverLocalService service;
 	public AndroidDriver driver;
-	public ExcelUtility exUtil;
-	public AndroidUtility andUtil;
+	public ExcelUtility exUtil=new ExcelUtility();
+	public AndroidUtility andUtil=new AndroidUtility(driver);
 	public FileUtility fUtil = new FileUtility(); 
 	
 	@BeforeSuite
@@ -34,13 +39,27 @@ public class BaseClass {
 	}
 	
 	@BeforeClass
-	public void launchApp()  {
+	public void launchApp() throws IOException, URISyntaxException  {
+		DesiredCapabilities caps = new DesiredCapabilities();
+		caps.setCapability("platformName", fUtil.dataFromPropertiesFile("platformName"));
+		caps.setCapability("automationName", fUtil.dataFromPropertiesFile("automationName"));
+		caps.setCapability("deviceName", fUtil.dataFromPropertiesFile("deviceName"));
+		caps.setCapability("UDID", fUtil.dataFromPropertiesFile("udid"));
+		caps.setCapability("appPackage", fUtil.dataFromPropertiesFile("appPackage"));
+		caps.setCapability("appActivity", fUtil.dataFromPropertiesFile("appActivity"));
+		caps.setCapability("noReset", true);
+		caps.setCapability("autoGrantPermission", true);
 		
+		URL u = new URI("http://127.0.0.1:4723").toURL();
+		driver = new AndroidDriver(u,caps);
+		UtilityClassObject.setDriver(driver);
+		UtilityClassObject.getDriver();
 		
 	}
 	
 	@BeforeMethod
 	public void login()  {
+		
 		
 	}
 	
@@ -51,7 +70,9 @@ public class BaseClass {
 	}
 	
 	@AfterClass
-	public void closeApp()  {
+	public void closeApp() throws IOException  {
+		String pName=System.getProperty("packageName",fUtil.dataFromPropertiesFile("packageName"));
+		andUtil.closeApp(pName);
 		
 	}
 	
