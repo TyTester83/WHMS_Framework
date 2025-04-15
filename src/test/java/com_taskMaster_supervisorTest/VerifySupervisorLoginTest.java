@@ -11,13 +11,20 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import Utilities.ListenerImpUtility;
+import com_taskMaster_ObjectRepo.SupervisorAccountPage;
+import com_taskMaster_ObjectRepo.SupervisorHomePage;
 import com_taskMaster_ObjectRepo.SupervisorLoginPage;
 import com_taskMaster_ObjectRepo.SupervisorOTPVerficationPage;
 import com_taskMaster_ObjectRepo.WelcomePage;
+import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 
+//@Listeners(ListenerImpUtility.class)
 public class VerifySupervisorLoginTest {
 	@Test
 	public void adminLoginTest() throws MalformedURLException, URISyntaxException, InterruptedException {
@@ -27,8 +34,6 @@ public class VerifySupervisorLoginTest {
 		caps.setCapability("platformName", "android");
 		caps.setCapability("automationName", "UiAutomator2");
 		caps.setCapability("UDID", "UK8545P7JV9SZ9SO");
-//		caps.setCapability("appPackage", "com.woloo.smarthygiene");
-//		caps.setCapability("appActivity", "com.woloo.smarthygiene.MainActivity");
 		caps.setCapability("ignoreHiddenApiPolicyError", true);
 		caps.setCapability("noReset", true);
 		caps.setCapability("autoGrantPermission", true);
@@ -60,15 +65,25 @@ public class VerifySupervisorLoginTest {
 
 		/* Validate OTP */
 		SupervisorOTPVerficationPage supervisorOTPVerficationPage = new SupervisorOTPVerficationPage(driver);
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		supervisorOTPVerficationPage.getOtpTextfield().click();
 		driver.hideKeyboard();
 		Thread.sleep(1000);
 		supervisorOTPVerficationPage.getOtpTextfield().sendKeys("1234", Keys.ENTER);
 		Thread.sleep(1000);
 		supervisorOTPVerficationPage.getSubmitButton().click();
+		Thread.sleep(1000);
+		boolean actualResult = driver.findElement(AppiumBy.accessibilityId("Hello, Tadmin ")).isDisplayed();
+		Assert.assertEquals(actualResult, true);
 
+		/* Logout */
+		SupervisorHomePage supervisorHomePage = new SupervisorHomePage(driver);
+		supervisorHomePage.getAccountButton().click();
+		Thread.sleep(1000);
+		SupervisorAccountPage supervisorAccountPage = new SupervisorAccountPage(driver);
+		supervisorAccountPage.getLogoutButton().click();
 		
+		driver.terminateApp("com.woloo.smarthygiene");
 
 	}
 
