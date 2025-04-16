@@ -16,11 +16,11 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import Utilities.ListenerImpUtility;
-import com_taskMaster_ObjectRepo.SupervisorAccountPage;
-import com_taskMaster_ObjectRepo.SupervisorHomePage;
-import com_taskMaster_ObjectRepo.SupervisorLoginPage;
-import com_taskMaster_ObjectRepo.SupervisorOTPVerficationPage;
-import com_taskMaster_ObjectRepo.WelcomePage;
+import com_taskMaster_objectRepo_Supervisor.SupervisorAccountPage;
+import com_taskMaster_objectRepo_Supervisor.SupervisorHomePage;
+import com_taskMaster_objectRepo_Supervisor.SupervisorLoginPage;
+import com_taskMaster_objectRepo_Supervisor.SupervisorOTPVerficationPage;
+import com_taskMaster_objectRepo_Supervisor.WelcomePage;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 

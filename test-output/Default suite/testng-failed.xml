@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com_taskMaster_supervisorTest.VerifyInvalidOTPTest">
+      <class name="com_taskMaster_adminTest.AdminLoginTest">
         <methods>
-          <include name="verifyInvalidSupervisorTest"/>
+          <include name="verifyAdminLoginTest"/>
         </methods>
-      </class> <!-- com_taskMaster_supervisorTest.VerifyInvalidOTPTest -->
+      </class> <!-- com_taskMaster_adminTest.AdminLoginTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
