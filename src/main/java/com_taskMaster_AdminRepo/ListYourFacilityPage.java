@@ -20,12 +20,10 @@ public class ListYourFacilityPage {
 			+ "Type of Facility *")
 	private WebElement listYourFacilityLayout;
 	
-	@AndroidFindBy(xpath = "//android.view.View[@content-desc=\"List Your Facility\r\n"
-			+ "Type of Facility *\"]/android.widget.EditText[1]")
+	@AndroidFindBy(xpath = "//android.view.View[contains(@content-desc,\"List Your Facility\")]/android.widget.EditText[1]")
 	private WebElement facilityNameTextfield;
 	
-	@AndroidFindBy(xpath = "//android.view.View[@content-desc=\"List Your Facility\r\n"
-			+ "Type of Facility *\"]/android.widget.EditText[2]")
+	@AndroidFindBy(xpath = "//android.view.View[contains(@content-desc,\"List Your Facility\")]/android.widget.EditText[2]")
 	private WebElement locationTextfield;
 	
 	@AndroidFindBy(accessibility = "Home")

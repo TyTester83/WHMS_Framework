@@ -128,10 +128,4 @@ public class AdminLoginTest {
 	}
 	
 
-	@Test
-	public void verifyInBrowserstack() throws Exception
-	{
-		
-		
-	}
 }

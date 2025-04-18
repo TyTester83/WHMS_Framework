@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\User\AppData\Local\Temp\testng-eclipse--1184830970\testng-customsuite.xml</span>
+                    <span>C:\Users\User\AppData\Local\Temp\testng-eclipse--1732360487\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -103,7 +103,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com_taskMaster_adminTest.AdminLoginTest" class="method navigator-link" hash-for-method="verifyInBrowserstack">verifyInBrowserstack</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com_taskMaster_adminTest.NewUserRegisterTest" class="method navigator-link" hash-for-method="newUserAddingFacilityTest">newUserAddingFacilityTest</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -121,20 +121,56 @@
           <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">com_taskMaster_adminTest.AdminLoginTest</span>
+              <span class="class-name">com_taskMaster_adminTest.NewUserRegisterTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="verifyInBrowserstack">
-                  </a> <!-- verifyInBrowserstack -->
-                  <span class="method-name">verifyInBrowserstack</span>
-                  <div class="stack-trace">java.lang.ClassCastException: class com.google.common.collect.Maps$TransformedEntriesMap cannot be cast to class org.openqa.selenium.WebElement (com.google.common.collect.Maps$TransformedEntriesMap and org.openqa.selenium.WebElement are in unnamed module of loader &apos;app&apos;)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:166)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:66)
+                  <a name="newUserAddingFacilityTest">
+                  </a> <!-- newUserAddingFacilityTest -->
+                  <span class="method-name">newUserAddingFacilityTest</span>
+                  <div class="stack-trace">org.openqa.selenium.WebDriverException: An unknown server-side error occurred while processing the command. Original error: &apos;POST /element&apos; cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.2&apos;
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [24bc6e6f-b739-4ca2-897f-aa29849fbfb7, findElement {using=accessibility id, value=Get Started}]
+Capabilities {appium:app: C:\Users\User\Downloads\Tas..., appium:appActivity: com.woloo.smarthygiene.Main..., appium:appPackage: com.woloo.smarthygiene, appium:autoGrantPermissions: true, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {app: C:\Users\User\Downloads\Tas..., appActivity: com.woloo.smarthygiene.Main..., appPackage: com.woloo.smarthygiene, autoGrantPermissions: true, automationName: UiAutomator2, deviceName: emulator-5554, ignoreHiddenApiPolicyError: true, noReset: true, platformName: ANDROID}, appium:deviceApiLevel: 36, appium:deviceManufacturer: Google, appium:deviceModel: sdk_gphone64_x86_64, appium:deviceName: emulator-5554, appium:deviceScreenDensity: 480, appium:deviceScreenSize: 1344x2992, appium:deviceUDID: emulator-5554, appium:ignoreHiddenApiPolicyError: true, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:noReset: true, appium:pixelRatio: 3, appium:platformVersion: 16, appium:statBarHeight: 151, appium:takesScreenshot: true, appium:viewportRect: {height: 2841, left: 0, top: 151, width: 1344}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 24bc6e6f-b739-4ca2-897f-aa29849fbfb7
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
-	at com_taskMaster_adminTest.AdminLoginTest.verifyInBrowserstack(AdminLoginTest.java:159)
+	at io.appium.java_client.pagefactory.bys.builder.ByChained.lambda$getSearchingFunction$0(ByChained.java:41)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
+	at io.appium.java_client.pagefactory.bys.builder.ByChained.findElement(ByChained.java:75)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$1.findElement(ElementLocation.java:139)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
+	at io.appium.java_client.pagefactory.bys.ContentMappedBy.findElement(ContentMappedBy.java:53)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$1.findElement(ElementLocation.java:139)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.lambda$findElement$1(AppiumElementLocator.java:160)
+	at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:217)
+	at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:210)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:135)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:160)
+	at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.call(InterceptorOfASingleElement.java:64)
+	at io.appium.java_client.proxy.Interceptor.intercept(Interceptor.java:78)
+	at org.openqa.selenium.remote.RemoteWebElement$ByteBuddy$hHEUdlBv.isDisplayed(Unknown Source)
+	at com_taskMaster_adminTest.NewUserRegisterTest.newUserAddingFacilityTest(NewUserRegisterTest.java:176)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -170,7 +206,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\User\AppData\Local\Temp\testng-eclipse--1184830970\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\User\AppData\Local\Temp\testng-eclipse--1732360487\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -179,11 +215,11 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com_taskMaster_adminTest.AdminLoginTest&quot;&gt;
+      &lt;class name=&quot;com_taskMaster_adminTest.NewUserRegisterTest&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;verifyInBrowserstack&quot;/&gt;
+          &lt;include name=&quot;newUserAddingFacilityTest&quot;/&gt;
         &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- com_taskMaster_adminTest.AdminLoginTest --&gt;
+      &lt;/class&gt; &lt;!-- com_taskMaster_adminTest.NewUserRegisterTest --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -225,14 +261,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'verifyInBrowserstack')
-data.setCell(0, 2, 'com_taskMaster_adminTest.AdminLoginTest')
-data.setCell(0, 3, 55998);
+data.setCell(0, 1, 'newUserAddingFacilityTest')
+data.setCell(0, 2, 'com_taskMaster_adminTest.NewUserRegisterTest')
+data.setCell(0, 3, 33784);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 55 seconds</span>
+              <span class="suite-total-time">Total running time: 33 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -247,15 +283,13 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">2 ignored methods</span>
+            <span class="header-content">1 ignored method</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
-              <span class="ignored-class-name">com_taskMaster_adminTest.AdminLoginTest</span>
+              <span class="ignored-class-name">com_taskMaster_adminTest.NewUserRegisterTest</span>
               <div class="ignored-methods-div">
                 <span class="ignored-method-name">verifyAdminLoginTest</span>
-                <br/>
-                <span class="ignored-method-name">verifyAdminLoginWithInvalidCredentialsTest</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -267,11 +301,11 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com_taskMaster_adminTest.AdminLoginTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com_taskMaster_adminTest.NewUserRegisterTest</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">verifyInBrowserstack</span>
+                <span class="method-name">newUserAddingFacilityTest</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->

@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Wed Apr 16 18:50:29 IST 2025</td>
+<td>Started on:</td><td>Thu Apr 17 16:29:15 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>56 seconds (56033 ms)</td>
+<tr><td>Total time:</td><td>33 seconds (33819 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,13 +76,49 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com_taskMaster_adminTest.AdminLoginTest.verifyInBrowserstack()'><b>verifyInBrowserstack</b><br>Test class: com_taskMaster_adminTest.AdminLoginTest</td>
-<td><div><pre>java.lang.ClassCastException: class com.google.common.collect.Maps$TransformedEntriesMap cannot be cast to class org.openqa.selenium.WebElement (com.google.common.collect.Maps$TransformedEntriesMap and org.openqa.selenium.WebElement are in unnamed module of loader &apos;app&apos;)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:166)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:66)
+<td title='com_taskMaster_adminTest.NewUserRegisterTest.newUserAddingFacilityTest()'><b>newUserAddingFacilityTest</b><br>Test class: com_taskMaster_adminTest.NewUserRegisterTest</td>
+<td><div><pre>org.openqa.selenium.WebDriverException: An unknown server-side error occurred while processing the command. Original error: &apos;POST /element&apos; cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.2&apos;
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [24bc6e6f-b739-4ca2-897f-aa29849fbfb7, findElement {using=accessibility id, value=Get Started}]
+Capabilities {appium:app: C:\Users\User\Downloads\Tas..., appium:appActivity: com.woloo.smarthygiene.Main..., appium:appPackage: com.woloo.smarthygiene, appium:autoGrantPermissions: true, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {app: C:\Users\User\Downloads\Tas..., appActivity: com.woloo.smarthygiene.Main..., appPackage: com.woloo.smarthygiene, autoGrantPermissions: true, automationName: UiAutomator2, deviceName: emulator-5554, ignoreHiddenApiPolicyError: true, noReset: true, platformName: ANDROID}, appium:deviceApiLevel: 36, appium:deviceManufacturer: Google, appium:deviceModel: sdk_gphone64_x86_64, appium:deviceName: emulator-5554, appium:deviceScreenDensity: 480, appium:deviceScreenSize: 1344x2992, appium:deviceUDID: emulator-5554, appium:ignoreHiddenApiPolicyError: true, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:noReset: true, appium:pixelRatio: 3, appium:platformVersion: 16, appium:statBarHeight: 151, appium:takesScreenshot: true, appium:viewportRect: {height: 2841, left: 0, top: 151, width: 1344}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 24bc6e6f-b739-4ca2-897f-aa29849fbfb7
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
-	at com_taskMaster_adminTest.AdminLoginTest.verifyInBrowserstack(AdminLoginTest.java:159)
+	at io.appium.java_client.pagefactory.bys.builder.ByChained.lambda$getSearchingFunction$0(ByChained.java:41)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
+	at io.appium.java_client.pagefactory.bys.builder.ByChained.findElement(ByChained.java:75)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$1.findElement(ElementLocation.java:139)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
+	at io.appium.java_client.pagefactory.bys.ContentMappedBy.findElement(ContentMappedBy.java:53)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$1.findElement(ElementLocation.java:139)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.lambda$findElement$1(AppiumElementLocator.java:160)
+	at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:217)
+	at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:210)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:135)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:160)
+	at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.call(InterceptorOfASingleElement.java:64)
+	at io.appium.java_client.proxy.Interceptor.intercept(Interceptor.java:78)
+	at org.openqa.selenium.remote.RemoteWebElement$ByteBuddy$hHEUdlBv.isDisplayed(Unknown Source)
+	at com_taskMaster_adminTest.NewUserRegisterTest.newUserAddingFacilityTest(NewUserRegisterTest.java:176)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -109,13 +145,49 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div><a href='#' onClick='toggleBox("stack-trace471004142", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace471004142'><pre>java.lang.ClassCastException: class com.google.common.collect.Maps$TransformedEntriesMap cannot be cast to class org.openqa.selenium.WebElement (com.google.common.collect.Maps$TransformedEntriesMap and org.openqa.selenium.WebElement are in unnamed module of loader &apos;app&apos;)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:166)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:66)
+</pre></div><a href='#' onClick='toggleBox("stack-trace646337666", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace646337666'><pre>org.openqa.selenium.WebDriverException: An unknown server-side error occurred while processing the command. Original error: &apos;POST /element&apos; cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.2&apos;
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [24bc6e6f-b739-4ca2-897f-aa29849fbfb7, findElement {using=accessibility id, value=Get Started}]
+Capabilities {appium:app: C:\Users\User\Downloads\Tas..., appium:appActivity: com.woloo.smarthygiene.Main..., appium:appPackage: com.woloo.smarthygiene, appium:autoGrantPermissions: true, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {app: C:\Users\User\Downloads\Tas..., appActivity: com.woloo.smarthygiene.Main..., appPackage: com.woloo.smarthygiene, autoGrantPermissions: true, automationName: UiAutomator2, deviceName: emulator-5554, ignoreHiddenApiPolicyError: true, noReset: true, platformName: ANDROID}, appium:deviceApiLevel: 36, appium:deviceManufacturer: Google, appium:deviceModel: sdk_gphone64_x86_64, appium:deviceName: emulator-5554, appium:deviceScreenDensity: 480, appium:deviceScreenSize: 1344x2992, appium:deviceUDID: emulator-5554, appium:ignoreHiddenApiPolicyError: true, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:noReset: true, appium:pixelRatio: 3, appium:platformVersion: 16, appium:statBarHeight: 151, appium:takesScreenshot: true, appium:viewportRect: {height: 2841, left: 0, top: 151, width: 1344}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 24bc6e6f-b739-4ca2-897f-aa29849fbfb7
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
-	at com_taskMaster_adminTest.AdminLoginTest.verifyInBrowserstack(AdminLoginTest.java:159)
+	at io.appium.java_client.pagefactory.bys.builder.ByChained.lambda$getSearchingFunction$0(ByChained.java:41)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
+	at io.appium.java_client.pagefactory.bys.builder.ByChained.findElement(ByChained.java:75)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$1.findElement(ElementLocation.java:139)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
+	at io.appium.java_client.pagefactory.bys.ContentMappedBy.findElement(ContentMappedBy.java:53)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$1.findElement(ElementLocation.java:139)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.lambda$findElement$1(AppiumElementLocator.java:160)
+	at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:217)
+	at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:210)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:135)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:160)
+	at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.call(InterceptorOfASingleElement.java:64)
+	at io.appium.java_client.proxy.Interceptor.intercept(Interceptor.java:78)
+	at org.openqa.selenium.remote.RemoteWebElement$ByteBuddy$hHEUdlBv.isDisplayed(Unknown Source)
+	at com_taskMaster_adminTest.NewUserRegisterTest.newUserAddingFacilityTest(NewUserRegisterTest.java:176)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -143,8 +215,8 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </pre></div></td>
-<td>55</td>
-<td>com_taskMaster_adminTest.AdminLoginTest@4e08711f</td></tr>
+<td>33</td>
+<td>com_taskMaster_adminTest.NewUserRegisterTest@4b2bac3f</td></tr>
 </table><p>
 </body>
 </html>

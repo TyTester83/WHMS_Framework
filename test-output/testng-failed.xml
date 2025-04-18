@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com_taskMaster_adminTest.AdminLoginTest">
+      <class name="com_taskMaster_adminTest.NewUserRegisterTest">
         <methods>
-          <include name="verifyInBrowserstack"/>
+          <include name="newUserAddingFacilityTest"/>
         </methods>
-      </class> <!-- com_taskMaster_adminTest.AdminLoginTest -->
+      </class> <!-- com_taskMaster_adminTest.NewUserRegisterTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
