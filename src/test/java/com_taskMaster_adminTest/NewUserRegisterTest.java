@@ -17,6 +17,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import Utilities.BaseClass;
 import com_taskMaster_AdminRepo.AdminHomePage;
 import com_taskMaster_AdminRepo.AdminLoginPage;
 import com_taskMaster_AdminRepo.AdminWelcomePage;
@@ -29,38 +30,19 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 
-public class NewUserRegisterTest {
+public class NewUserRegisterTest extends BaseClass{
 
 	@Test
 	public void verifyAdminLoginTest() throws URISyntaxException, IOException, InterruptedException {
-		DesiredCapabilities capabilities = new DesiredCapabilities();
-
-		capabilities.setCapability("platformName", "Android");
-		capabilities.setCapability("deviceName", "UK8545P7JV9SZ9SO");
-		capabilities.setCapability("automationName", "UiAutomator2");
-		capabilities.setCapability("app",
-				"C:\\\\Users\\\\User\\\\Downloads\\\\TaskMasterApkFile\\\\app-debug (11).apk");
-		capabilities.setCapability("appPackage", "com.woloo.smarthygiene");
-		capabilities.setCapability("appActivity", "com.woloo.smarthygiene.MainActivity");
-		capabilities.setCapability("autoGrantPermissions", true);
-		capabilities.setCapability("noReset", true);
-		capabilities.setCapability("ignoreHiddenApiPolicyError", true);
-
-		AndroidDriver driver = new AndroidDriver(new URI("http://127.0.0.1:4723").toURL(), capabilities);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 
 		/* Select Admin from Drop down */
-
-		if (!driver.isAppInstalled("com.woloo.smarthygiene")) {
-
-			driver.findElement(AppiumBy.id("com.android.packageinstaller:id/permission_allow_button")).click();
-		}
 
 		WelcomePage welcomePage = new WelcomePage(driver);
 		welcomePage.getLoginDropdown().click();
 		welcomePage.getAdminButton().click();
 
 		/* Navigate to register page and enter details to register as a new user */
+		
 		AdminLoginPage adminLoginPage = new AdminLoginPage(driver);
 		adminLoginPage.getRegisterNowLink().click();
 
@@ -76,10 +58,6 @@ public class NewUserRegisterTest {
 
 		NewUserRegisterPage registerPage = new NewUserRegisterPage(driver);
 
-//		WebDriverWait waitForRegisterPage=new WebDriverWait(driver,Duration.ofSeconds(20));
-//		waitForRegisterPage.until(ExpectedConditions.visibilityOf(registerPage.getTaskMasterLogo()));
-
-		Thread.sleep(2000);
 		registerPage.getNameTextfield().click();
 		registerPage.getNameTextfield().sendKeys("tester123");
 
@@ -102,16 +80,17 @@ public class NewUserRegisterTest {
 
 		registerPage.getPasswordTextfield().click();
 		registerPage.getPasswordTextfield().sendKeys("Password420");
-		driver.hideKeyboard();
 
-		Thread.sleep(1000);
 		registerPage.getConfirmPasswordTextfield().click();
+		Thread.sleep(1000);
+		driver.hideKeyboard();
 		registerPage.getConfirmPasswordTextfield().sendKeys("Password420");
 
 		driver.hideKeyboard();
 		registerPage.getRegisterButton().click();
 
 		/* verify registration */
+		
 		boolean actualResults = adminLoginPage.getEmailIDTextfield().isDisplayed();
 		Assert.assertEquals(actualResults, true);
 
@@ -119,31 +98,9 @@ public class NewUserRegisterTest {
 
 	@Test
 	public void newUserAddingFacilityTest() throws Exception, URISyntaxException {
-		DesiredCapabilities capabilities = new DesiredCapabilities();
-
-		capabilities.setCapability("platformName", "Android");
-//		capabilities.setCapability("deviceName", "UK8545P7JV9SZ9SO");
-		capabilities.setCapability("deviceName", "emulator-5554");
-//		capabilities.setCapability("platformVersion", "16.0");
-		capabilities.setCapability("automationName", "UiAutomator2");
-		capabilities.setCapability("app", "C:\\Users\\User\\Downloads\\TaskMasterApkFile\\app-debug (11).apk");
-		capabilities.setCapability("appPackage", "com.woloo.smarthygiene");
-		capabilities.setCapability("appActivity", "com.woloo.smarthygiene.MainActivity");
-		capabilities.setCapability("autoGrantPermissions", true);
-		capabilities.setCapability("noReset", true);
-		capabilities.setCapability("ignoreHiddenApiPolicyError", true);
-
-		AndroidDriver driver = new AndroidDriver(new URI("http://127.0.0.1:4723").toURL(), capabilities);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 
 		/* Select User from Drop down */
 
-		if (!driver.isAppInstalled("com.woloo.smarthygiene")) {
-
-			driver.findElement(AppiumBy.id("com.android.packageinstaller:id/permission_allow_button")).click();
-		}
-
-		driver.activateApp("com.woloo.smarthygiene");
 		WelcomePage welcomePage = new WelcomePage(driver);
 		welcomePage.getLoginDropdown().click();
 		welcomePage.getAdminButton().click();

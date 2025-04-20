@@ -1,46 +1,32 @@
 package com_taskMaster_adminTest;
 
 import java.io.IOException;
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.Duration;
 
-import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import Utilities.BaseClass;
 import com_taskMaster_AdminRepo.AdminHomePage;
 import com_taskMaster_AdminRepo.AdminLoginPage;
 import com_taskMaster_AdminRepo.AdminProfilePage;
 import com_taskMaster_objectRepo_Supervisor.WelcomePage;
-import io.appium.java_client.AppiumBy;
-import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.Activity;
 
-public class AdminLoginTest {
+public class AdminLoginTest extends BaseClass {
 
 	@Test
 	public void verifyAdminLoginTest() throws URISyntaxException, IOException, InterruptedException {
-		DesiredCapabilities capabilities = new DesiredCapabilities();
-
-		capabilities.setCapability("platformName", "Android");
-		capabilities.setCapability("deviceName", "UK8545P7JV9SZ9SO");
-		capabilities.setCapability("automationName", "UiAutomator2");
-		capabilities.setCapability("app", "C:\\Users\\User\\Downloads\\TaskMasterApkFile\\app-debug (11).apk");
-		capabilities.setCapability("appPackage", "com.woloo.smarthygiene");
-		capabilities.setCapability("appActivity", "com.woloo.smarthygiene.MainActivity");
-		capabilities.setCapability("autoGrantPermissions", true);
-		capabilities.setCapability("noReset", true);
-		capabilities.setCapability("ignoreHiddenApiPolicyError", true);
-
-		AndroidDriver driver = new AndroidDriver(new URI("http://127.0.0.1:4723").toURL(), capabilities);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 
 		/* Select Admin from Drop down */
 
-		if (!driver.isAppInstalled("com.woloo.smarthygiene"))
-			driver.findElement(AppiumBy.id("com.android.packageinstaller:id/permission_allow_button")).click();
-
 		WelcomePage welcomePage = new WelcomePage(driver);
+		welcomePage.getLoginDropdown().isDisplayed();
 		welcomePage.getLoginDropdown().click();
 		welcomePage.getAdminButton().click();
 
@@ -65,32 +51,23 @@ public class AdminLoginTest {
 		boolean actualResults = adminHomePage.getAdminDashboardText().isDisplayed();
 		Assert.assertEquals(actualResults, true);
 
+		/* Logout */
+		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		WebElement profileTab = wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("//android.widget.ImageView[contains(@content-desc, 'Profile')]")));
+		profileTab.click();
 
+		AdminProfilePage adminProfilePage = new AdminProfilePage(driver);
+		adminProfilePage.getLogoutButton().click();
 
 	}
 
 	@Test
 	public void verifyAdminLoginWithInvalidCredentialsTest()
 			throws URISyntaxException, IOException, InterruptedException {
-		DesiredCapabilities capabilities = new DesiredCapabilities();
-
-		capabilities.setCapability("platformName", "Android");
-		capabilities.setCapability("deviceName", "UK8545P7JV9SZ9SO");
-		capabilities.setCapability("automationName", "UiAutomator2");
-		capabilities.setCapability("app", "C:\\Users\\User\\Downloads\\TaskMasterApkFile\\app-debug (11).apk");
-		capabilities.setCapability("appPackage", "com.woloo.smarthygiene");
-		capabilities.setCapability("appActivity", "com.woloo.smarthygiene.MainActivity");
-		capabilities.setCapability("autoGrantPermissions", true);
-		capabilities.setCapability("noReset", true);
-		capabilities.setCapability("ignoreHiddenApiPolicyError", true);
-
-		AndroidDriver driver = new AndroidDriver(new URI("http://127.0.0.1:4723").toURL(), capabilities);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 
 		/* Select Admin from Drop down */
-
-		if (!driver.isAppInstalled("com.woloo.smarthygiene"))
-			driver.findElement(AppiumBy.id("com.android.packageinstaller:id/permission_allow_button")).click();
 
 		WelcomePage welcomePage = new WelcomePage(driver);
 		welcomePage.getLoginDropdown().click();
@@ -111,21 +88,32 @@ public class AdminLoginTest {
 
 		driver.hideKeyboard();
 		adminLoginPage.getLoginButton().click();
-		
-		String toastMessage = driver.findElement(AppiumBy.xpath("//android.widget.Toast[1]")).getText();
-		System.out.println("Toast Message: " + toastMessage);
-		
-//		/* Logout */
-//		
-//		if(adminHomePage.getProfileTab().isDisplayed())
-//		adminHomePage.getProfileTab().click();
-//
-//		AdminProfilePage adminProfilePage = new AdminProfilePage(driver);
-//		adminProfilePage.getLogoutButton().click();
-//
-//		driver.terminateApp("com.woloo.smarthygiene");
+
+		/* validate the invalid admin login */
+		boolean actualResults = adminLoginPage.getLoginButton().isDisplayed();
+		Assert.assertEquals(actualResults, true);
 
 	}
-	
+
+	@Test
+	public void verifyLogout() throws Exception {
+
+		Activity activity = new Activity(fUtil.dataFromPropertiesFile("appPackage"),
+				fUtil.dataFromPropertiesFile("appActivity"));
+		activity.setAppWaitPackage(fUtil.dataFromPropertiesFile("appPackage"));
+		activity.setAppWaitActivity(fUtil.dataFromPropertiesFile("appActivity"));
+
+		// Start the activity
+		driver.startActivity(activity);
+
+		/* Logout */
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebElement profileTab = wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("//android.widget.ImageView[contains(@content-desc, 'Profile')]")));
+		profileTab.click();
+
+		AdminProfilePage adminProfilePage = new AdminProfilePage(driver);
+		adminProfilePage.getLogoutButton().click();
+	}
 
 }

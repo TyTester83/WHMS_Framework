@@ -18,8 +18,7 @@ public class AdminHomePage {
 	@AndroidFindBy(accessibility = "Dashboard Overview")
 	private WebElement adminDashboardText;
 	
-	@AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc=\"Profile\r\n"
-			+ "Tab 2 of 2\"]")
+	@AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc,\"Profile\")]")
 	private WebElement profileTab;
 
 	public WebElement getAdminDashboardText() {
