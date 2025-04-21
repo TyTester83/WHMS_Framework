@@ -12,10 +12,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import Utilities.BaseClass;
-import com_taskMaster_AdminRepo.AdminHomePage;
-import com_taskMaster_AdminRepo.AdminLoginPage;
-import com_taskMaster_AdminRepo.AdminProfilePage;
-import com_taskMaster_objectRepo_Supervisor.WelcomePage;
+import com_taskMaster_adminRepo.AdminHomePage;
+import com_taskMaster_adminRepo.AdminLoginPage;
+import com_taskMaster_adminRepo.AdminProfilePage;
+import com_taskMaster_supervisorRepo.WelcomePage;
 import io.appium.java_client.android.Activity;
 
 public class AdminLoginTest extends BaseClass {

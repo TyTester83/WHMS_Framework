@@ -14,11 +14,11 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import Utilities.FileUtility;
-import com_taskMaster_objectRepo_Supervisor.SupervisorAccountPage;
-import com_taskMaster_objectRepo_Supervisor.SupervisorHomePage;
-import com_taskMaster_objectRepo_Supervisor.SupervisorLoginPage;
-import com_taskMaster_objectRepo_Supervisor.SupervisorOTPVerficationPage;
-import com_taskMaster_objectRepo_Supervisor.WelcomePage;
+import com_taskMaster_supervisorRepo.SupervisorAccountPage;
+import com_taskMaster_supervisorRepo.SupervisorHomePage;
+import com_taskMaster_supervisorRepo.SupervisorLoginPage;
+import com_taskMaster_supervisorRepo.SupervisorOTPVerficationPage;
+import com_taskMaster_supervisorRepo.WelcomePage;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 

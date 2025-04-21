@@ -1,4 +1,4 @@
-package com_taskMaster_AdminRepo;
+package com_taskMaster_adminRepo;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;

@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.Test;
 
-import com_taskMaster_objectRepo_Supervisor.WelcomePage;
+import com_taskMaster_supervisorRepo.WelcomePage;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 
