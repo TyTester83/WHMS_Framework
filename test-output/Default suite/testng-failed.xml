@@ -5,11 +5,11 @@
     <classes>
       <class name="com_taskMaster_adminTest.NewUserRegisterTest">
         <methods>
+          <include name="newUserAddingFacilityTest"/>
           <include name="logout"/>
           <include name="stopServer"/>
           <include name="startServer"/>
           <include name="closeApp"/>
-          <include name="verifyAdminLoginTest"/>
           <include name="launchApp"/>
           <include name="login"/>
         </methods>

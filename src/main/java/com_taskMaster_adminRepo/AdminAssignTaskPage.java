@@ -16,8 +16,8 @@ public class AdminAssignTaskPage {
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
 
-	@AndroidFindBy(xpath = "//android.view.View[contains(@content-desc,\"Assign Tasks\")]")
-	private WebElement assignTaskFrame;
+	@AndroidFindBy(accessibility = "Tasks")
+	private WebElement taskTextview;
 
 	@AndroidFindBy(accessibility = "Select Cleaning Tasks *")
 	private WebElement selectCleaningTaskDropdown;
@@ -31,18 +31,11 @@ public class AdminAssignTaskPage {
 	@AndroidFindBy(accessibility = "Next")
 	private WebElement nextButton;
 
-	@AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[3]/android.view.View/android.view.View/android.view.View")
-	private WebElement taskOptionTab;
-
 	@AndroidFindBy(accessibility = "OK")
 	private WebElement okButton;
 
-	@AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Bathroom Cleaning   15 min\"]/android.widget.Button[1]") // dynamic
-																															// xpath
-	private WebElement taskCancelButton;
-
-	public WebElement getAssignTaskFrame() {
-		return assignTaskFrame;
+	public WebElement gettaskTextview() {
+		return taskTextview;
 	}
 
 	public WebElement getSelectCleaningTaskDropdown() {
@@ -61,16 +54,8 @@ public class AdminAssignTaskPage {
 		return nextButton;
 	}
 
-	public WebElement getTaskOptionTab() {
-		return taskOptionTab;
-	}
-
 	public WebElement getOkButton() {
 		return okButton;
-	}
-
-	public WebElement getTaskCancelButton() {
-		return taskCancelButton;
 	}
 
 }

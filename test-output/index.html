@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\User\AppData\Local\Temp\testng-eclipse-1566437458\testng-customsuite.xml</span>
+                    <span>C:\Users\User\AppData\Local\Temp\testng-eclipse-43654852\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -103,7 +103,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com_taskMaster_adminTest.NewUserRegisterTest" class="method navigator-link" hash-for-method="verifyAdminLoginTest">verifyAdminLoginTest</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com_taskMaster_adminTest.NewUserRegisterTest" class="method navigator-link" hash-for-method="newUserAddingFacilityTest">newUserAddingFacilityTest</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -126,15 +126,15 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="verifyAdminLoginTest">
-                  </a> <!-- verifyAdminLoginTest -->
-                  <span class="method-name">verifyAdminLoginTest</span>
-                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: Can&apos;t locate an element by this strategy: By.chained({AppiumBy.accessibilityId: Login as})
+                  <a name="newUserAddingFacilityTest">
+                  </a> <!-- newUserAddingFacilityTest -->
+                  <span class="method-name">newUserAddingFacilityTest</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: Can&apos;t locate an element by this strategy: By.chained({AppiumBy.accessibilityId: Tasks})
 	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:166)
 	at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.call(InterceptorOfASingleElement.java:64)
 	at io.appium.java_client.proxy.Interceptor.intercept(Interceptor.java:78)
-	at org.openqa.selenium.remote.RemoteWebElement$ByteBuddy$gRqfD86M.click(Unknown Source)
-	at com_taskMaster_adminTest.NewUserRegisterTest.verifyAdminLoginTest(NewUserRegisterTest.java:41)
+	at org.openqa.selenium.remote.RemoteWebElement$ByteBuddy$onMZCHRA.isDisplayed(Unknown Source)
+	at com_taskMaster_adminTest.NewUserRegisterTest.newUserAddingFacilityTest(NewUserRegisterTest.java:224)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -161,25 +161,25 @@
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@3bbf6abe (tried for 1 second(s) with 500 milliseconds interval)
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@2d22d3b1 (tried for 1 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:262)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
 	at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:135)
 	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:160)
 	... 30 more
-Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.chained({AppiumBy.accessibilityId: Login as})
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.chained({AppiumBy.accessibilityId: Tasks})
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
 System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.2&apos;
 Driver info: driver.version: RemoteWebDriver
 	at io.appium.java_client.pagefactory.bys.builder.ByChained.findElement(ByChained.java:77)
 	at org.openqa.selenium.remote.ElementLocation$ElementFinder$1.findElement(ElementLocation.java:139)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:81)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
 	at io.appium.java_client.pagefactory.bys.ContentMappedBy.findElement(ContentMappedBy.java:53)
 	at org.openqa.selenium.remote.ElementLocation$ElementFinder$1.findElement(ElementLocation.java:139)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:81)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
 	at io.appium.java_client.pagefactory.AppiumElementLocator.lambda$findElement$1(AppiumElementLocator.java:160)
@@ -196,7 +196,7 @@ Driver info: driver.version: RemoteWebDriver
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\User\AppData\Local\Temp\testng-eclipse-1566437458\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\User\AppData\Local\Temp\testng-eclipse-43654852\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -207,7 +207,7 @@ Driver info: driver.version: RemoteWebDriver
     &lt;classes&gt;
       &lt;class name=&quot;com_taskMaster_adminTest.NewUserRegisterTest&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;verifyAdminLoginTest&quot;/&gt;
+          &lt;include name=&quot;newUserAddingFacilityTest&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- com_taskMaster_adminTest.NewUserRegisterTest --&gt;
     &lt;/classes&gt;
@@ -251,14 +251,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'verifyAdminLoginTest')
+data.setCell(0, 1, 'newUserAddingFacilityTest')
 data.setCell(0, 2, 'com_taskMaster_adminTest.NewUserRegisterTest')
-data.setCell(0, 3, 31083);
+data.setCell(0, 3, 64286);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 31 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -273,13 +273,15 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">1 ignored method</span>
+            <span class="header-content">2 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
               <span class="ignored-class-name">com_taskMaster_adminTest.NewUserRegisterTest</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">newUserAddingFacilityTest</span>
+                <span class="ignored-method-name">verifyAdminLoginTest</span>
+                <br/>
+                <span class="ignored-method-name">verifyWelcomePageDropdown</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -298,29 +300,29 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="configuration-class before">
                 <span class="method-name">launchApp</span>
-                <span class="method-start">2174 ms</span>
+                <span class="method-start">2253 ms</span>
               </div> <!-- configuration-class before -->
+              <div class="configuration-method before">
+                <span class="method-name">login</span>
+                <span class="method-start">14323 ms</span>
+              </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">verifyAdminLoginTest</span>
-                <span class="method-start">10473 ms</span>
+                <span class="method-name">newUserAddingFacilityTest</span>
+                <span class="method-start">14324 ms</span>
               </div> <!-- test-method -->
-              <div class="configuration-method before">
-                <span class="method-name">login</span>
-                <span class="method-start">10473 ms</span>
-              </div> <!-- configuration-method before -->
               <div class="configuration-method after">
                 <span class="method-name">logout</span>
-                <span class="method-start">41564 ms</span>
+                <span class="method-start">78613 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-class after">
                 <span class="method-name">closeApp</span>
-                <span class="method-start">41566 ms</span>
+                <span class="method-start">78614 ms</span>
               </div> <!-- configuration-class after -->
               <div class="configuration-suite after">
                 <span class="method-name">stopServer</span>
-                <span class="method-start">42288 ms</span>
+                <span class="method-start">79720 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

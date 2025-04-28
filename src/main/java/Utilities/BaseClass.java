@@ -43,7 +43,7 @@ public class BaseClass {
 	}
 
 	@BeforeClass
-	public void launchApp() throws IOException, URISyntaxException {
+	public void launchApp() throws IOException, URISyntaxException, InterruptedException {
 
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 

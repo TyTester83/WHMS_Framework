@@ -16,7 +16,7 @@ import org.testng.annotations.Test;
 
 import com_taskMaster_supervisorRepo.ClusterPage;
 import com_taskMaster_supervisorRepo.SupervisorAccountPage;
-import com_taskMaster_supervisorRepo.SupervisorHomePage;
+import com_taskMaster_supervisorRepo.SupervisorDashboardPage;
 import com_taskMaster_supervisorRepo.SupervisorLoginPage;
 import com_taskMaster_supervisorRepo.SupervisorOTPVerficationPage;
 import com_taskMaster_supervisorRepo.WelcomePage;
@@ -46,7 +46,7 @@ public class VerifyClusterFunctionalityTest {
 
 		/* Select available cluster */
 
-		SupervisorHomePage supervisorHomePage = new SupervisorHomePage(driver);
+		SupervisorDashboardPage supervisorHomePage = new SupervisorDashboardPage(driver);
 		supervisorHomePage.getClusterButton().click();
 
 		WebElement clusterId = driver
@@ -124,7 +124,7 @@ public class VerifyClusterFunctionalityTest {
 
 		/* Select available cluster */
 
-		SupervisorHomePage supervisorHomePage = new SupervisorHomePage(driver);
+		SupervisorDashboardPage supervisorHomePage = new SupervisorDashboardPage(driver);
 		supervisorHomePage.getClusterButton().click();
 
 		WebElement clusterId = driver
@@ -233,7 +233,7 @@ public class VerifyClusterFunctionalityTest {
 
 		/* Select available cluster */
 
-		SupervisorHomePage supervisorHomePage = new SupervisorHomePage(driver);
+		SupervisorDashboardPage supervisorHomePage = new SupervisorDashboardPage(driver);
 		supervisorHomePage.getClusterButton().click();
 
 		WebElement clusterId = driver

@@ -14,15 +14,26 @@ public class AdminProfilePage {
 		this.driver = driver;
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
-	
+
 	@AndroidFindBy(accessibility = "Log out")
 	private WebElement logoutButton;
+
+	@AndroidFindBy(accessibility = "No")
+	private WebElement noButton;
+
+	@AndroidFindBy(accessibility = "Yes")
+	private WebElement yesButton;
 
 	public WebElement getLogoutButton() {
 		return logoutButton;
 	}
-	
-	 
-	
+
+	public WebElement getNoButton() {
+		return noButton;
+	}
+
+	public WebElement getYesButton() {
+		return yesButton;
+	}
 
 }

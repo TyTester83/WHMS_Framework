@@ -16,14 +16,13 @@ public class ListYourFacilityPage {
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
 	
-	@AndroidFindBy(accessibility = "List Your Facility\r\n"
-			+ "Type of Facility *")
-	private WebElement listYourFacilityLayout;
+	@AndroidFindBy(accessibility = "Facility")
+	private WebElement listYourFacilityTextview;
 	
-	@AndroidFindBy(xpath = "//android.view.View[contains(@content-desc,\"List Your Facility\")]/android.widget.EditText[1]")
+	@AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Facility\"]/following-sibling::android.widget.EditText[1]")
 	private WebElement facilityNameTextfield;
 	
-	@AndroidFindBy(xpath = "//android.view.View[contains(@content-desc,\"List Your Facility\")]/android.widget.EditText[2]")
+	@AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Facility\"]/following-sibling::android.widget.EditText[2]")
 	private WebElement locationTextfield;
 	
 	@AndroidFindBy(accessibility = "Home")
@@ -38,11 +37,10 @@ public class ListYourFacilityPage {
 	@AndroidFindBy(accessibility = "Other")
 	private WebElement othersFacilityImage;
 	
-	@AndroidFindBy(xpath = "//android.view.View[@content-desc=\"List Your Facility\r\n"
-			+ "Type of Facility *\"]/android.widget.EditText[3]")
+	@AndroidFindBy(xpath = "//android.widget.EditText[3]")
 	private WebElement othersFacilityTextfield;
 	
-	@AndroidFindBy(accessibility = "Next")
+	@AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Next\"]")
 	private WebElement nextButton;
 	
 	@AndroidFindBy(accessibility = "Facility Name is required")
@@ -60,8 +58,8 @@ public class ListYourFacilityPage {
 	@AndroidFindBy(xpath = "//android.widget.Button")
 	private WebElement locationCancelButton;
 
-	public WebElement getListYourFacilityLayout() {
-		return listYourFacilityLayout;
+	public WebElement getlistYourFacilityTextview() {
+		return listYourFacilityTextview;
 	}
 
 	public WebElement getFacilityNameTextfield() {

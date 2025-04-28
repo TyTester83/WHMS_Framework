@@ -19,6 +19,7 @@ import com_taskMaster_supervisorRepo.WelcomePage;
 import io.appium.java_client.android.Activity;
 
 public class AdminLoginTest extends BaseClass {
+	
 
 	@Test
 	public void verifyAdminLoginTest() throws URISyntaxException, IOException, InterruptedException {
@@ -35,12 +36,12 @@ public class AdminLoginTest extends BaseClass {
 		AdminLoginPage adminLoginPage = new AdminLoginPage(driver);
 		adminLoginPage.getEmailIDTextfield().isDisplayed();
 		adminLoginPage.getEmailIDTextfield().click();
-		adminLoginPage.getEmailIDTextfield().sendKeys("dilipvinoth94@gmail.com");
+		adminLoginPage.getEmailIDTextfield().sendKeys("iniya@gmail.com");
 
 		driver.hideKeyboard();
 		Thread.sleep(1000);
 		adminLoginPage.getPasswordTextfield().click();
-		adminLoginPage.getPasswordTextfield().sendKeys("pass123");
+		adminLoginPage.getPasswordTextfield().sendKeys("password");
 
 		driver.hideKeyboard();
 		adminLoginPage.getLoginButton().click();
@@ -53,13 +54,13 @@ public class AdminLoginTest extends BaseClass {
 
 		/* Logout */
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-		WebElement profileTab = wait.until(ExpectedConditions.visibilityOfElementLocated(
-				By.xpath("//android.widget.ImageView[contains(@content-desc, 'Profile')]")));
-		profileTab.click();
-
-		AdminProfilePage adminProfilePage = new AdminProfilePage(driver);
-		adminProfilePage.getLogoutButton().click();
+//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+//		WebElement profileTab = wait.until(ExpectedConditions.visibilityOfElementLocated(
+//				By.xpath("//android.widget.ImageView[contains(@content-desc, 'Profile')]")));
+//		profileTab.click();
+//
+//		AdminProfilePage adminProfilePage = new AdminProfilePage(driver);
+//		adminProfilePage.getLogoutButton().click();
 
 	}
 

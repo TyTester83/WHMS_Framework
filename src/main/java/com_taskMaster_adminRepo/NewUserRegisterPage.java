@@ -42,7 +42,7 @@ public class NewUserRegisterPage {
 	@AndroidFindBy(xpath = "//android.widget.ScrollView/android.widget.EditText[8]")
 	private WebElement confirmPasswordTextfield;
 
-	@AndroidFindBy(accessibility = "Registor")
+	@AndroidFindBy(accessibility = "Register")
 	private WebElement registerButton;
 
 	@AndroidFindBy(accessibility = "Login Now")

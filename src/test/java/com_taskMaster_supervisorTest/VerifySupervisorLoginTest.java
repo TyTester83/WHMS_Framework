@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 
 import Utilities.FileUtility;
 import com_taskMaster_supervisorRepo.SupervisorAccountPage;
-import com_taskMaster_supervisorRepo.SupervisorHomePage;
+import com_taskMaster_supervisorRepo.SupervisorDashboardPage;
 import com_taskMaster_supervisorRepo.SupervisorLoginPage;
 import com_taskMaster_supervisorRepo.SupervisorOTPVerficationPage;
 import com_taskMaster_supervisorRepo.WelcomePage;
@@ -78,7 +78,7 @@ public class VerifySupervisorLoginTest {
 		Assert.assertEquals(actualResult, true);
 
 		/* Logout */
-		SupervisorHomePage supervisorHomePage = new SupervisorHomePage(driver);
+		SupervisorDashboardPage supervisorHomePage = new SupervisorDashboardPage(driver);
 		supervisorHomePage.getAccountButton().click();
 		Thread.sleep(1000);
 		SupervisorAccountPage supervisorAccountPage = new SupervisorAccountPage(driver);
