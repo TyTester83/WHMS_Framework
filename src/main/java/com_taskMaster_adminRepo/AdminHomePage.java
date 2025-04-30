@@ -15,6 +15,9 @@ public class AdminHomePage {
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
 
+	@AndroidFindBy(xpath = "//android.view.View[contains(@content-desc,\"Hello\")]")
+	private WebElement clientNameText;
+	
 	@AndroidFindBy(accessibility = "Dashboard Overview")
 	private WebElement adminDashboardText;
 

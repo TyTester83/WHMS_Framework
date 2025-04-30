@@ -34,6 +34,12 @@ public class AdminAssignTaskPage {
 	@AndroidFindBy(accessibility = "OK")
 	private WebElement okButton;
 
+	@AndroidFindBy(accessibility = "Please select shift Timing")
+	private WebElement shiftTimingErrorMessage;
+
+	@AndroidFindBy(accessibility = "Please add Timing for tasks")
+	private WebElement addTimingsErrorMessage;
+
 	public WebElement gettaskTextview() {
 		return taskTextview;
 	}
@@ -56,6 +62,18 @@ public class AdminAssignTaskPage {
 
 	public WebElement getOkButton() {
 		return okButton;
+	}
+
+	public WebElement getTaskTextview() {
+		return taskTextview;
+	}
+
+	public WebElement getShiftTimingErrorMessage() {
+		return shiftTimingErrorMessage;
+	}
+
+	public WebElement getAddTimingsErrorMessage() {
+		return addTimingsErrorMessage;
 	}
 
 }

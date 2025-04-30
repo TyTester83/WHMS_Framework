@@ -15,50 +15,53 @@ public class ListYourFacilityPage {
 		this.driver = driver;
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
-	
+
 	@AndroidFindBy(accessibility = "Facility")
 	private WebElement listYourFacilityTextview;
-	
+
 	@AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Facility\"]/following-sibling::android.widget.EditText[1]")
 	private WebElement facilityNameTextfield;
-	
+
 	@AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Facility\"]/following-sibling::android.widget.EditText[2]")
 	private WebElement locationTextfield;
-	
+
 	@AndroidFindBy(accessibility = "Home")
 	private WebElement homeFacilityImage;
-	
+
 	@AndroidFindBy(accessibility = "Office")
 	private WebElement officeFacilityImage;
-	
+
 	@AndroidFindBy(accessibility = "Restraunt")
 	private WebElement restrauntFacilityImage;
-	
+
 	@AndroidFindBy(accessibility = "Other")
 	private WebElement othersFacilityImage;
-	
+
 	@AndroidFindBy(xpath = "//android.widget.EditText[3]")
 	private WebElement othersFacilityTextfield;
-	
+
 	@AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Next\"]")
 	private WebElement nextButton;
-	
+
 	@AndroidFindBy(accessibility = "Facility Name is required")
 	private WebElement facilityNameErrorMessage;
-	
+
 	@AndroidFindBy(accessibility = "Location is required")
 	private WebElement locationErrorMessage;
-	
+
+	@AndroidFindBy(accessibility = "Please select a facility")
+	private WebElement facilityTypeErrorMessage;
+
 	@AndroidFindBy(accessibility = "Please mention other type")
 	private WebElement otherTypeErrorMessage;
-	
+
 	@AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[4]/android.view.View")
 	private WebElement autoSuggestLocationFrame;
-	
+
 	@AndroidFindBy(xpath = "//android.widget.Button")
 	private WebElement locationCancelButton;
 
-	public WebElement getlistYourFacilityTextview() {
+	public WebElement getListYourFacilityTextview() {
 		return listYourFacilityTextview;
 	}
 
@@ -102,6 +105,10 @@ public class ListYourFacilityPage {
 		return locationErrorMessage;
 	}
 
+	public WebElement getFacilityTypeErrorMessage() {
+		return facilityTypeErrorMessage;
+	}
+
 	public WebElement getOtherTypeErrorMessage() {
 		return otherTypeErrorMessage;
 	}
@@ -113,7 +120,5 @@ public class ListYourFacilityPage {
 	public WebElement getLocationCancelButton() {
 		return locationCancelButton;
 	}
-	
-	
-	
+
 }
