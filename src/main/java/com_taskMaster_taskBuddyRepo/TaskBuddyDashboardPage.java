@@ -25,7 +25,7 @@ public class TaskBuddyDashboardPage {
 	@AndroidFindBy(xpath = "//android.view.View[@content-desc=\"My Dashboard\"]/following-sibling::android.widget.ImageView[2]")
 	private WebElement myProfileImageview;
 
-	@AndroidFindBy(xpath = "//android.view.View[@content-desc=\"janitor\"]")
+	@AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View[@index=0]")
 	private WebElement profileNameTextview;// dynamic locators of profile
 
 	@AndroidFindBy(xpath = "//android.view.View[@content-desc=\"7,7, Kempapura Agrahara,Bangalore Division, Karnataka,560026\"]")

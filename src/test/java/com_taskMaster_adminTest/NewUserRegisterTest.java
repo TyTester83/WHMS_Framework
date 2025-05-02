@@ -3,22 +3,15 @@ package com_taskMaster_adminTest;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.time.Duration;
-import java.util.HashMap;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Random;
-import java.util.Set;
 
 import org.apache.poi.EncryptedDocumentException;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import com.google.common.collect.ImmutableMap;
 
 import Utilities.BaseClass;
 import Utilities.GestureUtility;
@@ -38,37 +31,75 @@ import io.appium.java_client.android.nativekey.KeyEvent;
 public class NewUserRegisterTest extends BaseClass {
 
 	@Test
-	public void verifyWelcomePageDropdown() {
-		/* Select Admin from Drop down */
+	public void verifyNewRegisterationTextfieldTest() throws URISyntaxException, IOException, InterruptedException {
+
+		/* Select Client from Drop down */
 
 		WelcomePage welcomePage = new WelcomePage(driver);
-
-		/* Validate the WelcomePage Login as */
-
-		boolean actDropdown = welcomePage.getLoginDropdown().isDisplayed();
-		Assert.assertEquals(actDropdown, true);
-
-		/* validate the dropdown option */
-
 		welcomePage.getLoginDropdown().click();
-
-		boolean actAdminOption = welcomePage.getAdminButton().isDisplayed();
-		Assert.assertEquals(actAdminOption, true);
 		welcomePage.getAdminButton().click();
 
-		/* Validate the proper admin Login page is displayed */
+		/* Navigate to register page and enter details to register as a new user */
 
 		AdminLoginPage adminLoginPage = new AdminLoginPage(driver);
+		adminLoginPage.getRegisterNowLink().click();
 
-		boolean actualLoginPage = adminLoginPage.getRegisterNowLink().isDisplayed();
-		Assert.assertEquals(actualLoginPage, true);
+		NewUserRegisterPage registerPage = new NewUserRegisterPage(driver);
+
+		/* Validate all the text field is visible */
+		Thread.sleep(2000);
+		Assert.assertEquals(registerPage.getNameTextfield().isDisplayed(), true);
+		Assert.assertEquals(registerPage.getEmailTextfield().isDisplayed(), true);
+		Assert.assertEquals(registerPage.getMobileNoTextfield().isDisplayed(), true);
+		Assert.assertEquals(registerPage.getAddressTextfield().isDisplayed(), true);
+		Assert.assertEquals(registerPage.getCityTextfield().isDisplayed(), true);
+		Assert.assertEquals(registerPage.getPincodeTextfield().isDisplayed(), true);
+		Assert.assertEquals(registerPage.getPasswordTextfield().isDisplayed(), true);
+		Assert.assertEquals(registerPage.getConfirmPasswordTextfield().isDisplayed(), true);
+		Assert.assertEquals(registerPage.getRegisterButton().isDisplayed(), true);
 
 	}
 
 	@Test
-	public void verifyAdminLoginTest() throws URISyntaxException, IOException, InterruptedException {
+	public void emptyFieldValidationOfRegisterationTest() throws URISyntaxException, IOException, InterruptedException {
 
-		/* Select Admin from Drop down */
+		/* Select Client from Drop down */
+
+		WelcomePage welcomePage = new WelcomePage(driver);
+		welcomePage.getLoginDropdown().click();
+		welcomePage.getAdminButton().click();
+
+		/* Navigate to register page and enter details to register as a new user */
+
+		AdminLoginPage adminLoginPage = new AdminLoginPage(driver);
+		adminLoginPage.getRegisterNowLink().click();
+
+		NewUserRegisterPage registerPage = new NewUserRegisterPage(driver);
+
+		/* Validate all the text field error message */
+		Thread.sleep(2000);
+		GestureUtility gUtil = new GestureUtility(driver);
+		gUtil.dragAndDrop(registerPage.getCityTextfield(), 410, 746);
+		driver.hideKeyboard();
+		registerPage.getRegisterButton().click();
+
+		Assert.assertEquals(registerPage.getNameErrorMessage().isDisplayed(), true);
+		Assert.assertEquals(registerPage.getEmailErrorMessage().isDisplayed(), true);
+		Assert.assertEquals(registerPage.getMobileNoErrorMessage().isDisplayed(), true);
+		Assert.assertEquals(registerPage.getAddressErrorMessage().isDisplayed(), true);
+		Assert.assertEquals(registerPage.getCityErrorMessage().isDisplayed(), true);
+		Assert.assertEquals(registerPage.getPincodeErrorMessage().isDisplayed(), true);
+		gUtil.dragAndDrop(registerPage.getPasswordErrorMessage(), 410, 746);
+		driver.hideKeyboard();
+		Assert.assertEquals(registerPage.getPasswordErrorMessage().isDisplayed(), true);
+		Assert.assertEquals(registerPage.getConfirmPasswordErrorMessage().isDisplayed(), true);
+
+	}
+
+	@Test
+	public void verifyNewRegisterationTest() throws URISyntaxException, IOException, InterruptedException {
+
+		/* Select Client from Drop down */
 
 		WelcomePage welcomePage = new WelcomePage(driver);
 		welcomePage.getLoginDropdown().click();
@@ -141,7 +172,7 @@ public class NewUserRegisterTest extends BaseClass {
 
 	@Test
 	public void verfiyListYourFacilityPageTest() throws EncryptedDocumentException, IOException, InterruptedException {
-		String name = exUtil.readDataFromExcel("Sheet1", 2, 1);
+
 		String email = exUtil.readDataFromExcel("Sheet1", 2, 2);
 		String password = exUtil.readDataFromExcel("Sheet1", 2, 7);
 
@@ -202,7 +233,7 @@ public class NewUserRegisterTest extends BaseClass {
 
 	@Test
 	public void verifyAssignTaskPageTest() throws InterruptedException, Exception, IOException {
-		String name = exUtil.readDataFromExcel("Sheet1", 2, 1);
+
 		String email = exUtil.readDataFromExcel("Sheet1", 2, 2);
 		String password = exUtil.readDataFromExcel("Sheet1", 2, 7);
 
@@ -212,8 +243,14 @@ public class NewUserRegisterTest extends BaseClass {
 		AdminWelcomePage adminWelcomePage = new AdminWelcomePage(driver);
 		driver.activateApp("com.woloo.smarthygiene");
 
-		boolean vaildate = adminWelcomePage.getGetStartButton().isDisplayed();
-		if (!vaildate) {
+		boolean isLoggedOut;
+		try {
+			isLoggedOut = adminWelcomePage.getGetStartButton().isDisplayed();
+		} catch (Exception e) {
+			isLoggedOut = false;
+		}
+
+		if (!isLoggedOut) {
 
 			welcomePage.getLoginDropdown().click();
 			welcomePage.getAdminButton().click();
@@ -277,232 +314,211 @@ public class NewUserRegisterTest extends BaseClass {
 	@Test
 	public void newUserAddingFacilityTest() throws Exception, URISyntaxException {
 
-		String name = exUtil.readDataFromExcel("Sheet1", 2, 1);
+		// Read data from Excel
+
 		String email = exUtil.readDataFromExcel("Sheet1", 2, 2);
 		String password = exUtil.readDataFromExcel("Sheet1", 2, 7);
+		System.out.println("Logging in with email: " + email);
 
-		/* Select User from Drop down */
-
+		// Initialize welcome page
 		AdminWelcomePage adminWelcomePage = new AdminWelcomePage(driver);
-		driver.activateApp("com.woloo.smarthygiene");
 
-		boolean vaildate = adminWelcomePage.getGetStartButton().isDisplayed();
-		if (!vaildate) {
+		boolean isLoggedOut;
+		try {
+			isLoggedOut = adminWelcomePage.getGetStartButton().isDisplayed();
+		} catch (Exception e) {
+			isLoggedOut = false;
+		}
+
+		if (!isLoggedOut) {
 			WelcomePage welcomePage = new WelcomePage(driver);
 			welcomePage.getLoginDropdown().click();
 			welcomePage.getAdminButton().click();
 
-			/* Admin Login page */
-
 			AdminLoginPage adminLoginPage = new AdminLoginPage(driver);
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
-			Thread.sleep(1000);
-			adminLoginPage.getEmailIDTextfield().click();
+			wait.until(ExpectedConditions.elementToBeClickable(adminLoginPage.getEmailIDTextfield())).click();
 			adminLoginPage.getEmailIDTextfield().sendKeys(email);
 			driver.hideKeyboard();
-			Thread.sleep(1000);
 
-			adminLoginPage.getPasswordTextfield().click();
+			wait.until(ExpectedConditions.elementToBeClickable(adminLoginPage.getPasswordTextfield())).click();
 			adminLoginPage.getPasswordTextfield().sendKeys(password);
 			driver.hideKeyboard();
-			Thread.sleep(1000);
+
 			adminLoginPage.getLoginButton().click();
 
-			/* Validate explore button is displayed */
-
-			Thread.sleep(1000);
 			TaskMasterOverviewPage taskMasterOverviewPage = new TaskMasterOverviewPage(driver);
-			boolean actExploreBtn = taskMasterOverviewPage.getExploreButton().isDisplayed();
-			Assert.assertEquals(actExploreBtn, true);
-			Thread.sleep(1000);
-
-			taskMasterOverviewPage.getExploreButton().click();
+			wait.until(ExpectedConditions.visibilityOf(taskMasterOverviewPage.getExploreButton())).click();
 		}
 
-		/* Validate start button is displayed */
+		// Proceed from Get Started button
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.elementToBeClickable(adminWelcomePage.getGetStartButton())).click();
 
-		boolean actSatrtBtn = adminWelcomePage.getGetStartButton().isDisplayed();
-		Assert.assertEquals(actSatrtBtn, true);
-
-		adminWelcomePage.getGetStartButton().click();
-		Thread.sleep(1000);
-
-		/* Validate the List Your Facility Page */
-
+		// Fill facility details
 		ListYourFacilityPage listYourFacilityPage = new ListYourFacilityPage(driver);
-		boolean actFacilityPage = listYourFacilityPage.getListYourFacilityTextview().isDisplayed();
-		Assert.assertEquals(actFacilityPage, true);
-
-		/* Adding new Facility */
+		Assert.assertTrue(listYourFacilityPage.getListYourFacilityTextview().isDisplayed());
 
 		String expectedLocation = "Bangalore";
-
-		listYourFacilityPage.getFacilityNameTextfield().click();
 		listYourFacilityPage.getFacilityNameTextfield().sendKeys("BathRoom");
-
-		listYourFacilityPage.getLocationTextfield().click();
 		listYourFacilityPage.getLocationTextfield().sendKeys(expectedLocation);
 
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 		WebElement location = wait.until(ExpectedConditions.elementToBeClickable(
 				AppiumBy.xpath("//android.view.View[contains(@content-desc,'" + expectedLocation + "')]")));
 		location.click();
-		driver.pressKey(new KeyEvent(AndroidKey.BACK));// this one for android
+
+		driver.pressKey(new KeyEvent(AndroidKey.BACK));
 		listYourFacilityPage.getOfficeFacilityImage().click();
 		listYourFacilityPage.getNextButton().click();
 
-		/* Navigate to assign task page and create task for janitor */
-
+		// Assign task
 		AdminAssignTaskPage taskPage = new AdminAssignTaskPage(driver);
+		Assert.assertTrue(taskPage.gettaskTextview().isDisplayed());
 
-		boolean actTaskPage = taskPage.gettaskTextview().isDisplayed();
-		Assert.assertEquals(actTaskPage, true);
-
+		GestureUtility gUtil = new GestureUtility(driver);
 		taskPage.getSelectCleaningTaskDropdown().click();
-		String cleaning = "Pantry Cleaning   15 min";
 
-		driver.findElement(AppiumBy.xpath("//android.widget.Button[@content-desc='" + cleaning + "']")).click();
-
+		String cleaningTask = "Toilet Cleaning   15 min";
+		for (int i = 0; i < 5; i++) {
+			List<WebElement> options = driver
+					.findElements(AppiumBy.xpath("//android.widget.Button[@content-desc='" + cleaningTask + "']"));
+			if (!options.isEmpty()) {
+				options.get(0).click();
+				break;
+			}
+			WebElement scrollView = driver
+					.findElement(AppiumBy.xpath("//android.widget.Button[@content-desc='Pantry Cleaning   15 min']"));
+			gUtil.swipeByElement(scrollView, "up", 1.0);
+			Thread.sleep(800);
+		}
 		taskPage.getOkButton().click();
 		taskPage.getStartTimeButton().click();
 
+		// Select shift start time
 		StartTimePage shiftStartTimePage = new StartTimePage(driver);
-		boolean actSelectTimePage = shiftStartTimePage.getSelectTimeTextView().isDisplayed();
-		Assert.assertEquals(actSelectTimePage, true);
-
+		Assert.assertTrue(shiftStartTimePage.getSelectTimeTextView().isDisplayed());
 		shiftStartTimePage.getSwitchTimeIcon().click();
-
-		/* Enter the time for Shift */
-
-		boolean actEnterTimePage = shiftStartTimePage.getEnterTimeTextView().isDisplayed();
-		Assert.assertEquals(actEnterTimePage, true);
+		Assert.assertTrue(shiftStartTimePage.getEnterTimeTextView().isDisplayed());
 
 		String hours = "10";
 		String minutes = "30";
 		String shift = "am";
 
-		shiftStartTimePage.getHrsTextfield().click();
 		shiftStartTimePage.getHrsTextfield().clear();
 		shiftStartTimePage.getHrsTextfield().sendKeys(hours);
+		Thread.sleep(500);
 
 		shiftStartTimePage.getMinTextfield().clear();
-		Thread.sleep(1000);
 		shiftStartTimePage.getMinTextfield().sendKeys(minutes);
+		Thread.sleep(500);
 
-		if (shift.equals("am")) {
+		if (shift.equalsIgnoreCase("am")) {
 			shiftStartTimePage.getAmRadioButton().click();
-		}
-
-		else {
+		} else {
 			shiftStartTimePage.getPmRadioButton().click();
 		}
-
 		shiftStartTimePage.getOkButton().click();
 
-		/* Add task timings */
-
+		// Schedule task timing using scroll pickers
 		taskPage.getAddTimingsButton().click();
-
 		ScheduleTaskTimingsPage addTimingsPage = new ScheduleTaskTimingsPage(driver);
-		boolean actScheduleTaskText = addTimingsPage.getScheduleTaskTextView().isDisplayed();
-		Assert.assertEquals(actScheduleTaskText, true);
+		Assert.assertTrue(addTimingsPage.getScheduleTaskTextView().isDisplayed());
 
-		/* Scroll hour wheel */
-		
+		// Locate time picker elements
 		WebElement hourWheel = driver.findElement(AppiumBy.xpath(
-				"//android.view.View[@content-desc=\"Schedule Task *\"]/parent::android.view.View/child::android.view.View[2]/descendant::android.view.View[5]"));
+				"//android.view.View[@content-desc='Schedule Task *']/parent::android.view.View/child::android.view.View[2]/descendant::android.view.View[5]"));
 		WebElement minuteWheel = driver.findElement(AppiumBy.xpath(
-				"//android.view.View[@content-desc=\"Schedule Task *\"]/parent::android.view.View/child::android.view.View[2]/descendant::android.view.View[10]"));
+				"//android.view.View[@content-desc='Schedule Task *']/parent::android.view.View/child::android.view.View[2]/descendant::android.view.View[10]"));
+		WebElement meridiemWheel = driver.findElement(AppiumBy.xpath(
+				"//android.view.View[@content-desc='Schedule Task *']/parent::android.view.View/child::android.view.View[2]/descendant::android.view.View[15]"));
 
-		GestureUtility gUtil = new GestureUtility(driver);
+		String expectedHour = hours; // Example: "10"
+		String expectedMinute = minutes; // Example: "30"
+		String expectedMeridiem = shift.toLowerCase(); // "am" or "pm"
 
-		String currentHour = hourWheel.getAttribute("content-desc");
-//		while (!currentHour.trim().equals(hours)) {
-//			currentHour = hourWheel.getAttribute("content-desc");
-//			if (currentHour.equals(hours))
-//				break;
-//			gUtil.scrollOnElement(hourWheel, "up");
-//			Thread.sleep(1000);
-//		}
+		// --- Adjust Hour Wheel ---
+		int maxTries = 20; // fail-safe to avoid infinite loop
+		int tries = 0;
+		while (tries++ < maxTries) {
+			String currentHour = hourWheel.getAttribute("content-desc").trim();
+			if (currentHour.equals(expectedHour))
+				break;
+			int currentHrInt = Integer.parseInt(currentHour);
+			int expectedHrInt = Integer.parseInt(expectedHour);
+			String direction = (expectedHrInt > currentHrInt) ? "up" : "down";
+			gUtil.scrollOnElement(hourWheel, direction);
+			Thread.sleep(500);
+		}
 
-		System.out.println(currentHour);
-		int n=0;
-		int expectHours=10;
-		if(Integer.parseInt(currentHour)>expectHours)
-		{
-			n=Integer.parseInt(currentHour)-expectHours;
+		// --- Adjust Minute Wheel ---
+		tries = 0;
+		while (tries++ < maxTries) {
+			String currentMinute = minuteWheel.getAttribute("content-desc").trim();
+			if (currentMinute.equals(expectedMinute))
+				break;
+			int currentMinInt = Integer.parseInt(currentMinute);
+			int expectedMinInt = Integer.parseInt(expectedMinute);
+			String direction = (expectedMinInt > currentMinInt) ? "up" : "down";
+			gUtil.scrollOnElement(minuteWheel, direction);
+			Thread.sleep(500);
 		}
-		else
-		{
-			n=expectHours-Integer.parseInt(currentHour);
+
+		// --- Adjust AM/PM Wheel ---
+		tries = 0;
+		while (tries++ < maxTries) {
+			String currentMeridiem = meridiemWheel.getAttribute("content-desc").trim().toLowerCase();
+			if (currentMeridiem.equals(expectedMeridiem))
+				break;
+			gUtil.scrollOnElement(meridiemWheel, "up"); // Usually AM/PM is just toggled
+			Thread.sleep(500);
 		}
-		
-		for(int i=1;i<=6;i++)
-		{
-			gUtil.scrollOnElement(hourWheel, "up");
-			Thread.sleep(1000);
-			
-		}
-//		/* Scroll minute wheel */
-//		
-//		String currentMinute = minuteWheel.getAttribute("content-desc");
-//		while (!currentMinute.trim().equals(minutes)) {
-//			currentMinute = minuteWheel.getAttribute("content-desc");
-//			if (currentMinute.equals("45"))
-//				break;
-//			gUtil.scrollOnElement(minuteWheel, "up");
-//			Thread.sleep(500);
-//		}
-//
-//		WebElement meridiem = driver.findElement(AppiumBy.xpath(
-//				"//android.view.View[@content-desc=\"Schedule Task *\"]/parent::android.view.View/child::android.view.View[2]/descendant::android.view.View[15]"));
-//
-//		String currentMeridiem=meridiem.getAttribute("content-desc");
-//		String actShift="AM";
-//		if(currentMeridiem.trim().equals("PM")&&actShift.equals("AM"))
-//		{
-//			gUtil.scrollOnElement(meridiem, "down");
-//		}
-//		else
-//		{
-//			gUtil.scrollOnElement(meridiem, "up");
-//		}
+
+		// Click Add and proceed
+		addTimingsPage.getAddButton().click();
+		taskPage.getNextButton().click();
 	}
+
 	@Test
-	public void checkTheContextView() throws Throwable
-	{
-		
-		String name = exUtil.readDataFromExcel("Sheet1", 2, 1);
+	public void checkTheContextView() throws Throwable {
+
 		String email = exUtil.readDataFromExcel("Sheet1", 2, 2);
 		String password = exUtil.readDataFromExcel("Sheet1", 2, 7);
+		System.out.println(email);
 
 		AdminWelcomePage adminWelcomePage = new AdminWelcomePage(driver);
-		driver.activateApp("com.woloo.smarthygiene");
 
-		// Check if already logged in
-		if (!adminWelcomePage.getGetStartButton().isDisplayed()) {
-		    WelcomePage welcomePage = new WelcomePage(driver);
-		    welcomePage.getLoginDropdown().click();
-		    welcomePage.getAdminButton().click();
+		boolean isLoggedOut;
 
-		    AdminLoginPage adminLoginPage = new AdminLoginPage(driver);
-		    Thread.sleep(1000);
-		    adminLoginPage.getEmailIDTextfield().click();
-		    adminLoginPage.getEmailIDTextfield().sendKeys(email);
-		    driver.hideKeyboard();
+		try {
+			isLoggedOut = adminWelcomePage.getGetStartButton().isDisplayed();
+		} catch (Exception e) {
+			isLoggedOut = false;
+		}
 
-		    Thread.sleep(1000);
-		    adminLoginPage.getPasswordTextfield().click();
-		    adminLoginPage.getPasswordTextfield().sendKeys(password);
-		    driver.hideKeyboard();
+		if (!isLoggedOut) {
+			WelcomePage welcomePage = new WelcomePage(driver);
+			welcomePage.getLoginDropdown().click();
+			welcomePage.getAdminButton().click();
 
-		    Thread.sleep(1000);
-		    adminLoginPage.getLoginButton().click();
+			AdminLoginPage adminLoginPage = new AdminLoginPage(driver);
+			Thread.sleep(1000);
+			adminLoginPage.getEmailIDTextfield().click();
+			adminLoginPage.getEmailIDTextfield().sendKeys("tester573@gmail.com");
+			driver.hideKeyboard();
 
-		    Thread.sleep(1000);
-		    TaskMasterOverviewPage taskMasterOverviewPage = new TaskMasterOverviewPage(driver);
-		    Assert.assertTrue(taskMasterOverviewPage.getExploreButton().isDisplayed());
-		    taskMasterOverviewPage.getExploreButton().click();
+			Thread.sleep(1000);
+			adminLoginPage.getPasswordTextfield().click();
+			adminLoginPage.getPasswordTextfield().sendKeys(password);
+			driver.hideKeyboard();
+
+			Thread.sleep(1000);
+			adminLoginPage.getLoginButton().click();
+
+			Thread.sleep(1000);
+			TaskMasterOverviewPage taskMasterOverviewPage = new TaskMasterOverviewPage(driver);
+			Assert.assertTrue(taskMasterOverviewPage.getExploreButton().isDisplayed());
+			taskMasterOverviewPage.getExploreButton().click();
 		}
 
 		Assert.assertTrue(adminWelcomePage.getGetStartButton().isDisplayed());
@@ -519,7 +535,7 @@ public class NewUserRegisterTest extends BaseClass {
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 		WebElement location = wait.until(ExpectedConditions.elementToBeClickable(
-		    AppiumBy.xpath("//android.view.View[contains(@content-desc,'" + expectedLocation + "')]")));
+				AppiumBy.xpath("//android.view.View[contains(@content-desc,'" + expectedLocation + "')]")));
 		location.click();
 
 		driver.pressKey(new KeyEvent(AndroidKey.BACK)); // Android only
@@ -531,21 +547,23 @@ public class NewUserRegisterTest extends BaseClass {
 		Assert.assertTrue(taskPage.gettaskTextview().isDisplayed());
 
 		GestureUtility gUtil = new GestureUtility(driver);
-		
+
 		taskPage.getSelectCleaningTaskDropdown().click();
-		
-		//scroll till the element visible
+
+		// scroll till the element visible
 		String cleaning = "Toilet Cleaning   15 min";
 
 		for (int i = 0; i < 5; i++) {
-		    List<WebElement> options = driver.findElements(AppiumBy.xpath("//android.widget.Button[@content-desc='" + cleaning + "']"));
-		    if (!options.isEmpty()) {
-		        options.get(0).click();
-		        break;
-		    }
-			WebElement scrollView = driver.findElement(AppiumBy.xpath("//android.widget.Button[@content-desc=\"Pantry Cleaning   15 min\"]"));
-		    gUtil.swipeByElement(scrollView, "up", 1.0) ;// custom method
-		    Thread.sleep(800);
+			List<WebElement> options = driver
+					.findElements(AppiumBy.xpath("//android.widget.Button[@content-desc='" + cleaning + "']"));
+			if (!options.isEmpty()) {
+				options.get(0).click();
+				break;
+			}
+			WebElement scrollView = driver
+					.findElement(AppiumBy.xpath("//android.widget.Button[@content-desc=\"Pantry Cleaning   15 min\"]"));
+			gUtil.swipeByElement(scrollView, "up", 1.0);// custom method
+			Thread.sleep(800);
 		}
 		taskPage.getOkButton().click();
 		taskPage.getStartTimeButton().click();
@@ -571,9 +589,9 @@ public class NewUserRegisterTest extends BaseClass {
 		Thread.sleep(500);
 
 		if (shift.equals("am")) {
-		    shiftStartTimePage.getAmRadioButton().click();
+			shiftStartTimePage.getAmRadioButton().click();
 		} else {
-		    shiftStartTimePage.getPmRadioButton().click();
+			shiftStartTimePage.getPmRadioButton().click();
 		}
 		shiftStartTimePage.getOkButton().click();
 
@@ -584,13 +602,11 @@ public class NewUserRegisterTest extends BaseClass {
 
 		// Scroll wheel pickers
 		WebElement hourWheel = driver.findElement(AppiumBy.xpath(
-		    "//android.view.View[@content-desc=\"Schedule Task *\"]/parent::android.view.View/child::android.view.View[2]/descendant::android.view.View[5]"));
+				"//android.view.View[@content-desc=\"Schedule Task *\"]/parent::android.view.View/child::android.view.View[2]/descendant::android.view.View[5]"));
 		WebElement minuteWheel = driver.findElement(AppiumBy.xpath(
-		    "//android.view.View[@content-desc=\"Schedule Task *\"]/parent::android.view.View/child::android.view.View[2]/descendant::android.view.View[10]"));
+				"//android.view.View[@content-desc=\"Schedule Task *\"]/parent::android.view.View/child::android.view.View[2]/descendant::android.view.View[10]"));
 		WebElement meridiem = driver.findElement(AppiumBy.xpath(
-		    "//android.view.View[@content-desc=\"Schedule Task *\"]/parent::android.view.View/child::android.view.View[2]/descendant::android.view.View[15]"));
-
-		
+				"//android.view.View[@content-desc=\"Schedule Task *\"]/parent::android.view.View/child::android.view.View[2]/descendant::android.view.View[15]"));
 
 		// Scroll hour
 		String currentHour = hourWheel.getAttribute("content-desc").trim();
@@ -598,10 +614,10 @@ public class NewUserRegisterTest extends BaseClass {
 		int expectedHr = Integer.parseInt(hours);
 		int diffHr = expectedHr - currentHr;
 		System.out.println(diffHr);
-		
+
 		for (int i = 0; i < Math.abs(diffHr); i++) {
-		    gUtil.scrollOnElement(hourWheel, diffHr > 0 ? "up" : "down");
-		    Thread.sleep(600);
+			gUtil.scrollOnElement(hourWheel, diffHr > 0 ? "up" : "down");
+			Thread.sleep(600);
 		}
 
 		// Scroll minute
@@ -610,20 +626,20 @@ public class NewUserRegisterTest extends BaseClass {
 		int expectedMinute = Integer.parseInt(minutes);
 		int diffMin = expectedMinute - currentMinute;
 		System.out.println(diffMin);
-		
+
 		for (int i = 0; i < Math.abs(diffMin); i++) {
-		    gUtil.scrollOnElement(minuteWheel, diffMin > 0 ? "up" : "down");
-		    Thread.sleep(600);
+			gUtil.scrollOnElement(minuteWheel, diffMin > 0 ? "up" : "down");
+			Thread.sleep(600);
 		}
 
 		// Scroll AM/PM
 		String currentMeridiem = meridiem.getAttribute("content-desc").trim().toLowerCase();
 		if (!currentMeridiem.equals(shift)) {
-		    gUtil.scrollOnElement(meridiem, shift.equals("am") ? "down" : "up");
+			gUtil.scrollOnElement(meridiem, shift.equals("am") ? "down" : "up");
 		}
-		
+
 		addTimingsPage.getAddButton().click();
-		
+
 		taskPage.getNextButton().click();
 	}
 

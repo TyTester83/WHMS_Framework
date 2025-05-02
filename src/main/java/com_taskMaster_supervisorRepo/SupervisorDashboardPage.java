@@ -16,6 +16,9 @@ public class SupervisorDashboardPage {
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
 
+	@AndroidFindBy(xpath = "//android.view.View[contains(@content-desc,\"Hello\")]")
+	private WebElement supervisorNameTextview;
+
 	@AndroidFindBy(accessibility = "Pending task\r\n" + "Tab 1 of 4")
 	private WebElement pendingtaskTab;
 
@@ -48,6 +51,10 @@ public class SupervisorDashboardPage {
 
 	@AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.widget.ImageView")
 	private WebElement homeButton;
+
+	public WebElement getSupervisorNameTextview() {
+		return supervisorNameTextview;
+	}
 
 	public WebElement getPendingtaskTab() {
 		return pendingtaskTab;
@@ -92,7 +99,5 @@ public class SupervisorDashboardPage {
 	public WebElement getHomeButton() {
 		return homeButton;
 	}
-	
-	
 
 }

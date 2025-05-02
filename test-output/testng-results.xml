@@ -1,101 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-04-29T22:56:23 IST" name="Default suite" finished-at="2025-04-29T22:57:37 IST" duration-ms="73782">
+  <suite started-at="2025-05-02T23:29:55 IST" name="Default suite" finished-at="2025-05-02T23:30:35 IST" duration-ms="39653">
     <groups>
     </groups>
-    <test started-at="2025-04-29T22:56:23 IST" name="Default test" finished-at="2025-04-29T22:57:37 IST" duration-ms="73782">
+    <test started-at="2025-05-02T23:29:55 IST" name="Default test" finished-at="2025-05-02T23:30:35 IST" duration-ms="39653">
       <class name="com_taskMaster_adminTest.NewUserRegisterTest">
-        <test-method is-config="true" signature="startServer()[pri:0, instance:com_taskMaster_adminTest.NewUserRegisterTest@45b4c3a9]" started-at="2025-04-29T22:56:21 IST" name="startServer" finished-at="2025-04-29T22:56:23 IST" duration-ms="2499" status="PASS">
+        <test-method is-config="true" signature="startServer()[pri:0, instance:com_taskMaster_adminTest.NewUserRegisterTest@399c4be1]" started-at="2025-05-02T23:29:51 IST" name="startServer" finished-at="2025-05-02T23:29:55 IST" duration-ms="3899" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startServer -->
-        <test-method is-config="true" signature="launchApp()[pri:0, instance:com_taskMaster_adminTest.NewUserRegisterTest@45b4c3a9]" started-at="2025-04-29T22:56:23 IST" name="launchApp" finished-at="2025-04-29T22:56:35 IST" duration-ms="12152" status="PASS">
+        <test-method is-config="true" signature="launchApp()[pri:0, instance:com_taskMaster_adminTest.NewUserRegisterTest@399c4be1]" started-at="2025-05-02T23:29:55 IST" name="launchApp" finished-at="2025-05-02T23:30:08 IST" duration-ms="12701" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApp -->
-        <test-method signature="checkTheContextView()[pri:0, instance:com_taskMaster_adminTest.NewUserRegisterTest@45b4c3a9]" started-at="2025-04-29T22:56:35 IST" name="checkTheContextView" finished-at="2025-04-29T22:57:36 IST" duration-ms="60872" status="FAIL">
-          <exception class="org.openqa.selenium.NoSuchElementException">
-            <message>
-              <![CDATA[An element could not be located on the page using the given search parameters.
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.13.0', revision: 'ba948ece5b*'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
-Driver info: io.appium.java_client.android.AndroidDriver
-Command: [f15f4b64-885e-44b2-8099-c7d604367abd, findElement {using=xpath, value=//android.widget.Button[@content-desc[contains(.,"Toilet Cleaning   15 min")]]/following-sibling::android.widget.CheckBox}]
-Capabilities {appium:app: C:\Users\User\Downloads\Tas..., appium:appActivity: com.woloo.smarthygiene.Main..., appium:appPackage: com.woloo.smarthygiene, appium:autoGrantPermission: true, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {app: C:\Users\User\Downloads\Tas..., appActivity: com.woloo.smarthygiene.Main..., appPackage: com.woloo.smarthygiene, autoGrantPermission: true, automationName: UiAutomator2, deviceName: Galaxy A13, ignoreHiddenApiPolicyError: true, noReset: true, platformName: ANDROID}, appium:deviceApiLevel: 34, appium:deviceManufacturer: samsung, appium:deviceModel: SM-A135F, appium:deviceName: 192.168.1.102:5555, appium:deviceScreenDensity: 450, appium:deviceScreenSize: 1080x2408, appium:deviceUDID: 192.168.1.102:5555, appium:ignoreHiddenApiPolicyError: true, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:noReset: true, appium:pixelRatio: 2.8125, appium:platformVersion: 14, appium:statBarHeight: 70, appium:takesScreenshot: true, appium:viewportRect: {height: 2338, left: 0, top: 70, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
-Session ID: f15f4b64-885e-44b2-8099-c7d604367abd]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.13.0', revision: 'ba948ece5b*'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
-Driver info: io.appium.java_client.android.AndroidDriver
-Command: [f15f4b64-885e-44b2-8099-c7d604367abd, findElement {using=xpath, value=//android.widget.Button[@content-desc[contains(.,"Toilet Cleaning   15 min")]]/following-sibling::android.widget.CheckBox}]
-Capabilities {appium:app: C:\Users\User\Downloads\Tas..., appium:appActivity: com.woloo.smarthygiene.Main..., appium:appPackage: com.woloo.smarthygiene, appium:autoGrantPermission: true, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {app: C:\Users\User\Downloads\Tas..., appActivity: com.woloo.smarthygiene.Main..., appPackage: com.woloo.smarthygiene, autoGrantPermission: true, automationName: UiAutomator2, deviceName: Galaxy A13, ignoreHiddenApiPolicyError: true, noReset: true, platformName: ANDROID}, appium:deviceApiLevel: 34, appium:deviceManufacturer: samsung, appium:deviceModel: SM-A135F, appium:deviceName: 192.168.1.102:5555, appium:deviceScreenDensity: 450, appium:deviceScreenSize: 1080x2408, appium:deviceUDID: 192.168.1.102:5555, appium:ignoreHiddenApiPolicyError: true, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:noReset: true, appium:pixelRatio: 2.8125, appium:platformVersion: 14, appium:statBarHeight: 70, appium:takesScreenshot: true, appium:viewportRect: {height: 2338, left: 0, top: 70, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
-Session ID: f15f4b64-885e-44b2-8099-c7d604367abd
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
-at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
-at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
-at Utilities.GestureUtility.scrollToAndClickCheckbox(GestureUtility.java:116)
-at com_taskMaster_adminTest.NewUserRegisterTest.checkTheContextView(NewUserRegisterTest.java:539)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-at org.testng.TestRunner.privateRun(TestRunner.java:848)
-at org.testng.TestRunner.run(TestRunner.java:621)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
-at org.testng.SuiteRunner.run(SuiteRunner.java:336)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
-at org.testng.TestNG.runSuites(TestNG.java:1114)
-at org.testng.TestNG.run(TestNG.java:1082)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+        <test-method signature="emptyFieldValidationOfRegisterationTest()[pri:0, instance:com_taskMaster_adminTest.NewUserRegisterTest@399c4be1]" started-at="2025-05-02T23:30:08 IST" name="emptyFieldValidationOfRegisterationTest" finished-at="2025-05-02T23:30:34 IST" duration-ms="26082" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- checkTheContextView -->
-        <test-method is-config="true" signature="login()[pri:0, instance:com_taskMaster_adminTest.NewUserRegisterTest@45b4c3a9]" started-at="2025-04-29T22:56:35 IST" name="login" finished-at="2025-04-29T22:56:35 IST" duration-ms="0" status="PASS">
+        </test-method> <!-- emptyFieldValidationOfRegisterationTest -->
+        <test-method is-config="true" signature="login()[pri:0, instance:com_taskMaster_adminTest.NewUserRegisterTest@399c4be1]" started-at="2025-05-02T23:30:08 IST" name="login" finished-at="2025-05-02T23:30:08 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method is-config="true" signature="logout()[pri:0, instance:com_taskMaster_adminTest.NewUserRegisterTest@45b4c3a9]" started-at="2025-04-29T22:57:36 IST" name="logout" finished-at="2025-04-29T22:57:36 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="logout()[pri:0, instance:com_taskMaster_adminTest.NewUserRegisterTest@399c4be1]" started-at="2025-05-02T23:30:34 IST" name="logout" finished-at="2025-05-02T23:30:34 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logout -->
-        <test-method is-config="true" signature="closeApp()[pri:0, instance:com_taskMaster_adminTest.NewUserRegisterTest@45b4c3a9]" started-at="2025-04-29T22:57:36 IST" name="closeApp" finished-at="2025-04-29T22:57:37 IST" duration-ms="721" status="PASS">
+        <test-method is-config="true" signature="closeApp()[pri:0, instance:com_taskMaster_adminTest.NewUserRegisterTest@399c4be1]" started-at="2025-05-02T23:30:34 IST" name="closeApp" finished-at="2025-05-02T23:30:35 IST" duration-ms="843" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeApp -->
-        <test-method is-config="true" signature="stopServer()[pri:0, instance:com_taskMaster_adminTest.NewUserRegisterTest@45b4c3a9]" started-at="2025-04-29T22:57:37 IST" name="stopServer" finished-at="2025-04-29T22:57:37 IST" duration-ms="54" status="PASS">
+        <test-method is-config="true" signature="stopServer()[pri:0, instance:com_taskMaster_adminTest.NewUserRegisterTest@399c4be1]" started-at="2025-05-02T23:30:35 IST" name="stopServer" finished-at="2025-05-02T23:30:35 IST" duration-ms="58" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- stopServer -->

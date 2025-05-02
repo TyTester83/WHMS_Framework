@@ -18,10 +18,10 @@ public class AdminLoginPage {
 	@AndroidFindBy(xpath = "//android.widget.ImageView")
 	private WebElement taskMasterLogo;
 
-	@AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.widget.EditText[1]")
+	@AndroidFindBy(xpath = "//android.widget.EditText[@index=1]")
 	private WebElement emailIDTextfield;
 
-	@AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.widget.EditText[2]")
+	@AndroidFindBy(xpath = "//android.widget.EditText[@index=2]")
 	private WebElement passwordTextfield;
 
 	@AndroidFindBy(accessibility = "Login")

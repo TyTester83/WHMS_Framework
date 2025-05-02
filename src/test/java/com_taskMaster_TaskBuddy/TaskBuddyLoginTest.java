@@ -1,11 +1,10 @@
 package com_taskMaster_TaskBuddy;
 
 import java.net.URISyntaxException;
-import java.time.Duration;
+import java.util.Arrays;
+import java.util.List;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -15,6 +14,7 @@ import com_taskMaster_taskBuddyRepo.TaskBuddyDashboardPage;
 import com_taskMaster_taskBuddyRepo.TaskBuddyLanguagePopup;
 import com_taskMaster_taskBuddyRepo.TaskBuddyLoginPage;
 import com_taskMaster_taskBuddyRepo.TaskBuddyOTPPage;
+import io.appium.java_client.AppiumBy;
 
 public class TaskBuddyLoginTest extends BaseClass {
 
@@ -27,7 +27,7 @@ public class TaskBuddyLoginTest extends BaseClass {
 		welcomePage.getLoginDropdown().click();
 		welcomePage.getTaskBuddyButton().click();
 
-		/* Enter taskbuddy login credentials */
+		/* Enter task buddy login credentials */
 
 		TaskBuddyLanguagePopup languagePopup = new TaskBuddyLanguagePopup(driver);
 		languagePopup.getLanguagePopup().isDisplayed();
@@ -35,15 +35,17 @@ public class TaskBuddyLoginTest extends BaseClass {
 
 		TaskBuddyLoginPage loginPage = new TaskBuddyLoginPage(driver);
 		loginPage.getMobileNumberTextfield().click();
-		loginPage.getMobileNumberTextfield().sendKeys("9845200005");
+		Thread.sleep(2000);
 		driver.hideKeyboard();
+		loginPage.getMobileNumberTextfield().sendKeys("7975433721");
+		Thread.sleep(1000);
 		loginPage.getSendOTPButton().click();
 
-		/* Enter Otp to login taskbuddy page */
+		/* Enter OTP to login task buddy page */
 
 		TaskBuddyOTPPage otpPage = new TaskBuddyOTPPage(driver);
 		
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		otpPage.getOtpTextfield().click();
 		otpPage.getOtpTextfield().sendKeys("1234");
 		driver.hideKeyboard();
@@ -51,9 +53,19 @@ public class TaskBuddyLoginTest extends BaseClass {
 		
 		/* Validate the user login */
 		
+		List<String> options = Arrays.asList("Allow only while using the app", "Allow", "While using the app");
+
+		for (String option : options) {
+		    List<WebElement> allowButtons = driver.findElements(AppiumBy.xpath("//*[@text='" + option + "']"));
+		    if (!allowButtons.isEmpty()) {
+		        allowButtons.get(0).click();
+		        break;
+		    }
+		}
+		String taskBuddy="janitor";
 		TaskBuddyDashboardPage taskBuddyHomepage=new TaskBuddyDashboardPage(driver);
-		boolean actualResults = taskBuddyHomepage.getMyDashboardTextview().isDisplayed();
-		Assert.assertEquals(actualResults, true);
+		String actualResults = taskBuddyHomepage.getProfileNameTextview().getAttribute("content-desc");
+		Assert.assertEquals(actualResults.trim().contains(taskBuddy), true);
 
 	}
 }

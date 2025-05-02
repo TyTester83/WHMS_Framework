@@ -11,11 +11,7 @@ import org.openqa.selenium.remote.RemoteWebElement;
 import com.google.common.collect.ImmutableMap;
 
 import io.appium.java_client.AppiumBy;
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.touch.WaitOptions;
-import io.appium.java_client.touch.offset.PointOption;
 
 public class GestureUtility {
 

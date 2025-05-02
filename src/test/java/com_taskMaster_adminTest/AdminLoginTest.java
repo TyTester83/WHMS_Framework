@@ -2,12 +2,7 @@ package com_taskMaster_adminTest;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.time.Duration;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -16,55 +11,10 @@ import com_taskMaster_adminRepo.AdminHomePage;
 import com_taskMaster_adminRepo.AdminLoginPage;
 import com_taskMaster_adminRepo.AdminProfilePage;
 import com_taskMaster_supervisorRepo.WelcomePage;
-import io.appium.java_client.android.Activity;
 
 public class AdminLoginTest extends BaseClass {
-	
 
-	@Test
-	public void verifyAdminLoginTest() throws URISyntaxException, IOException, InterruptedException {
-
-		/* Select Admin from Drop down */
-
-		WelcomePage welcomePage = new WelcomePage(driver);
-		welcomePage.getLoginDropdown().isDisplayed();
-		welcomePage.getLoginDropdown().click();
-		welcomePage.getAdminButton().click();
-
-		/* Admin Login page */
-
-		AdminLoginPage adminLoginPage = new AdminLoginPage(driver);
-		adminLoginPage.getEmailIDTextfield().isDisplayed();
-		adminLoginPage.getEmailIDTextfield().click();
-		adminLoginPage.getEmailIDTextfield().sendKeys("iniya@gmail.com");
-
-		driver.hideKeyboard();
-		Thread.sleep(1000);
-		adminLoginPage.getPasswordTextfield().click();
-		adminLoginPage.getPasswordTextfield().sendKeys("password");
-
-		driver.hideKeyboard();
-		adminLoginPage.getLoginButton().click();
-
-		/* Validate the admin login */
-
-		AdminHomePage adminHomePage = new AdminHomePage(driver);
-		boolean actualResults = adminHomePage.getAdminDashboardText().isDisplayed();
-		Assert.assertEquals(actualResults, true);
-
-		/* Logout */
-		
-//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-//		WebElement profileTab = wait.until(ExpectedConditions.visibilityOfElementLocated(
-//				By.xpath("//android.widget.ImageView[contains(@content-desc, 'Profile')]")));
-//		profileTab.click();
-//
-//		AdminProfilePage adminProfilePage = new AdminProfilePage(driver);
-//		adminProfilePage.getLogoutButton().click();
-
-	}
-
-	@Test
+	@Test(priority = 2)
 	public void verifyAdminLoginWithInvalidCredentialsTest()
 			throws URISyntaxException, IOException, InterruptedException {
 
@@ -77,44 +27,88 @@ public class AdminLoginTest extends BaseClass {
 		/* Admin Login page */
 
 		AdminLoginPage adminLoginPage = new AdminLoginPage(driver);
-		adminLoginPage.getEmailIDTextfield().isDisplayed();
 		Thread.sleep(1000);
 		adminLoginPage.getEmailIDTextfield().click();
-		adminLoginPage.getEmailIDTextfield().sendKeys("dilipvinoth94@gmail.com");
-
 		driver.hideKeyboard();
 		Thread.sleep(1000);
+		adminLoginPage.getEmailIDTextfield().sendKeys("dilipvinoth94@gmail.com");
+
+		Thread.sleep(1000);
 		adminLoginPage.getPasswordTextfield().click();
+		driver.hideKeyboard();
+		Thread.sleep(1000);
 		adminLoginPage.getPasswordTextfield().sendKeys("pass1234");
+		adminLoginPage.getLoginButton().click();
+
+		/* validate the invalid admin login */
+		Assert.assertEquals(adminLoginPage.getLoginButton().isDisplayed(), true);
+
+	}
+	
+	@Test(priority = 1)
+	public void verifyAdminLoginWithEmptyFieldTest()
+			throws URISyntaxException, IOException, InterruptedException {
+
+		/* Select Admin from Drop down */
+
+		WelcomePage welcomePage = new WelcomePage(driver);
+		welcomePage.getLoginDropdown().click();
+		welcomePage.getAdminButton().click();
+
+		/* Admin Login page */
+
+		AdminLoginPage adminLoginPage = new AdminLoginPage(driver);
+		adminLoginPage.getLoginButton().click();
+
+		/* validate the empty field with login */
+		Assert.assertEquals(adminLoginPage.getEmailErrorMessage().isDisplayed(), true);
+		Assert.assertEquals(adminLoginPage.getPasswordErrorMessage().isDisplayed(), true);
+
+	}
+
+	@Test(priority = 3)
+	public void verifyLogout() throws Exception {
+		/* Select Admin from Drop down */
+
+		WelcomePage welcomePage = new WelcomePage(driver);
+		welcomePage.getLoginDropdown().click();
+		welcomePage.getAdminButton().click();
+
+		/* Admin Login page */
+
+		AdminLoginPage adminLoginPage = new AdminLoginPage(driver);
+		Thread.sleep(1000);
+		adminLoginPage.getEmailIDTextfield().click();
+		driver.hideKeyboard();
+		Thread.sleep(1000);
+		adminLoginPage.getEmailIDTextfield().sendKeys("iniya@gmail.com");
+
+		Thread.sleep(1000);
+		adminLoginPage.getPasswordTextfield().click();
+		driver.hideKeyboard();
+		Thread.sleep(1000);
+		adminLoginPage.getPasswordTextfield().sendKeys("password");
 
 		driver.hideKeyboard();
 		adminLoginPage.getLoginButton().click();
 
-		/* validate the invalid admin login */
-		boolean actualResults = adminLoginPage.getLoginButton().isDisplayed();
-		Assert.assertEquals(actualResults, true);
+		/* Validate the admin login */
 
-	}
-
-	@Test
-	public void verifyLogout() throws Exception {
-
-		Activity activity = new Activity(fUtil.dataFromPropertiesFile("appPackage"),
-				fUtil.dataFromPropertiesFile("appActivity"));
-		activity.setAppWaitPackage(fUtil.dataFromPropertiesFile("appPackage"));
-		activity.setAppWaitActivity(fUtil.dataFromPropertiesFile("appActivity"));
-
-		// Start the activity
-		driver.startActivity(activity);
+		AdminHomePage adminHomePage = new AdminHomePage(driver);
+		Assert.assertEquals(adminHomePage.getAdminDashboardText().isDisplayed(), true);
 
 		/* Logout */
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		WebElement profileTab = wait.until(ExpectedConditions.visibilityOfElementLocated(
-				By.xpath("//android.widget.ImageView[contains(@content-desc, 'Profile')]")));
-		profileTab.click();
-
+		Thread.sleep(3000);
+		adminHomePage.getProfileTab().click();
 		AdminProfilePage adminProfilePage = new AdminProfilePage(driver);
 		adminProfilePage.getLogoutButton().click();
+
+		Thread.sleep(2000);
+		adminProfilePage.getYesButton().click();
+
+		/* Validate the logout */
+
+		Assert.assertEquals(welcomePage.getLoginDropdown().isDisplayed(), true);
 	}
 
 }

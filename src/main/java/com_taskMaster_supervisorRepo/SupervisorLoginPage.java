@@ -18,11 +18,14 @@ public class SupervisorLoginPage {
 	@AndroidFindBy(accessibility = "English")
 	private WebElement selectLanguageButton;
 
-	@AndroidFindBy(className = "android.widget.EditText")
+	@AndroidFindBy(xpath = "//android.widget.EditText[@index=1]")
 	private WebElement supervisorMobileNumberTextfield;
 
 	@AndroidFindBy(accessibility = "Send OTP")
 	private WebElement sendOTPButton;
+	
+	@AndroidFindBy(accessibility = "Please enter your mobile number")
+	private WebElement mobileNumErrorMessageText;
 
 	public WebElement getSelectLanguageButton() {
 		return selectLanguageButton;
@@ -36,6 +39,10 @@ public class SupervisorLoginPage {
 		return sendOTPButton;
 	}
 	
+	public WebElement getMobileNumErrorMessageText() {
+		return mobileNumErrorMessageText;
+	}
+
 	public void supervisorLogin()
 	{
 		getSelectLanguageButton().click();

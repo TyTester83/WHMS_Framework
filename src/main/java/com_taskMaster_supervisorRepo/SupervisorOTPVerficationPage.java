@@ -16,7 +16,7 @@ public class SupervisorOTPVerficationPage {
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
 
-	@AndroidFindBy(className = "android.widget.EditText")
+	@AndroidFindBy(xpath = "//android.widget.EditText[@index=2]")
 	private WebElement otpTextfield;
 
 	@AndroidFindBy(accessibility = "Submit")

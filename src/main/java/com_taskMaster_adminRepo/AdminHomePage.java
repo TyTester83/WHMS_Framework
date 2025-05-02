@@ -45,7 +45,7 @@ public class AdminHomePage {
 	@AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Pending Task :\"]/following-sibling::android.view.View[1]")
 	private WebElement pendingTaskCountText;
 
-	@AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc,\"Profile\")]")
+	@AndroidFindBy(accessibility = "Profile")
 	private WebElement profileTab;
 
 	@AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc,\"Home\")]")

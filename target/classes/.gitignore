@@ -1,3 +1,5 @@
-/com_taskMaster_adminRepo/
-/com_taskMaster_taskBuddyRepo/
 /META-INF/
+/com_taskMaster_taskBuddyRepo/
+/com_taskMaster_adminRepo/
+/com_taskMaster_supervisorRepo/
+/Utilities/

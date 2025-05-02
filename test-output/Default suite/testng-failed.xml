@@ -8,9 +8,9 @@
           <include name="logout"/>
           <include name="stopServer"/>
           <include name="startServer"/>
-          <include name="checkTheContextView"/>
           <include name="closeApp"/>
           <include name="launchApp"/>
+          <include name="emptyFieldValidationOfRegisterationTest"/>
           <include name="login"/>
         </methods>
       </class> <!-- com_taskMaster_adminTest.NewUserRegisterTest -->

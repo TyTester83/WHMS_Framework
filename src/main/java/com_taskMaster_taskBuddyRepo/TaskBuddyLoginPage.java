@@ -16,15 +16,23 @@ public class TaskBuddyLoginPage {
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
 	
+	@AndroidFindBy(accessibility = "English")
+	private WebElement selectLanguageButton;
+	
 	@AndroidFindBy(xpath = "//android.widget.ImageView")
 	private WebElement taskMasterImage;
 	
-	@AndroidFindBy(xpath = "//android.widget.EditText")
+	@AndroidFindBy(xpath = "//android.widget.EditText[@index=1]")
 	private WebElement mobileNumberTextfield;
 	
 	@AndroidFindBy(accessibility = "Send OTP")
 	private WebElement sendOTPButton;
 	
+	
+	public WebElement getSelectLanguageButton() {
+		return selectLanguageButton;
+	}
+
 	public WebElement getTaskMasterImage() {
 		return taskMasterImage;
 	}

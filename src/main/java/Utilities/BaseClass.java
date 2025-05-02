@@ -4,14 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.time.Duration;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -53,6 +48,7 @@ public class BaseClass {
 		capabilities.setCapability("deviceName", fUtil.dataFromPropertiesFile("deviceName"));
 		capabilities.setCapability("appPackage", fUtil.dataFromPropertiesFile("appPackage"));
 		capabilities.setCapability("appActivity", fUtil.dataFromPropertiesFile("appActivity"));
+		capabilities.setCapability("androidInstallTimeout", 180000);
 		capabilities.setCapability("autoGrantPermission", true);
 		capabilities.setCapability("noReset", true);
 		capabilities.setCapability("ignoreHiddenApiPolicyError", true);
@@ -63,13 +59,10 @@ public class BaseClass {
 
 		if (!driver.isAppInstalled(fUtil.dataFromPropertiesFile("appPackage"))) {
 
-			try {
-				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-				WebElement allowBtn = wait.until(ExpectedConditions.presenceOfElementLocated(
-						By.id("com.android.permissioncontroller:id/permission_allow_button")));
-				allowBtn.click();
-			} catch (Exception e) {
-				System.out.println("Permission dialog not displayed or already handled.");
+			driver.installApp(fUtil.dataFromPropertiesFile("app"));
+
+			if (driver.findElements(AppiumBy.xpath("//*[@text='Allow']")).size() > 0) {
+				driver.findElement(AppiumBy.xpath("//*[@text='Allow']")).click();
 			}
 		}
 	}
